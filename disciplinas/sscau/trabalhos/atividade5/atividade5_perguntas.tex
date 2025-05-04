@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simple Sectioned Essay Template
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing essay content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article} % Default font size is 12pt, it can be changed here
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry} % Required to change the page size to A4
+\geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
+
+\usepackage{graphicx} % Required for including pictures
+
+\usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
+\usepackage{wrapfig} % Allows in-line images such as the example fish picture
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\linespread{1.2} % Line spacing
+
+%\setlength\parindent{0pt} % Uncomment to remove all indentation from paragraphs
+
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+\textsc{\LARGE Universidade Federal de Pelotas}\\[1.5cm] % Name of your university/college
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Capítulo 2 - Arquiteturas, do Livro “Tanenbaum & van Steen. Sistemas Distribuídos: Princípios e Paradigmas. 2. ed., Prentice-Hall, 2007.”}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+Alexandre Costa\\
+Caue Duarte
+\end{flushleft}
+\end{minipage}
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\tableofcontents % Include a table of contents
+
+%\newpage % Begins the essay on a new page instead of on the same page as the table of contents 
+
+%----------------------------------------------------------------------------------------
+%	ABISTRACT
+%----------------------------------------------------------------------------------------
+
+\section{Perguntas} % Major section
+
+\begin{enumerate}
+	\item Qual a implicação de utilizar, na arquitetura cliente/servidor protocolos sem conexão?
+%R. Maior velocidade, porém mais suscetível a falhas.
+	\item Qual motivo para na arquitetura cliente/servidor não haver distinção clara  entre cliente e servidor ?
+%R. Pois , por exemplo, quando utilizados em sistemas distribuídos, servidores também fazem requisições para outros servidores e até mesmo clientes. 
+	\item Diferencie as camadas do estilo arquitetural em camadas e cite um exemplo de aplicação\\
+a. Nível de interface com o usuário\\
+b. Nível de processamento.\\
+c. Dados
+%R. Buscador,  pois normalmente é baseadona arquitetura cliente/servidor , possuindo uma camada de visualização, servidores com regras de negócios com algoritmos inteligentes (adwords, propagandas) e finalmente uma camada de dados  com imensos volumes de dados.
+	\item Bancos relacionais são a soluções ideais para toda a gama de problemas da computação ?
+%R. Não pois apenas se restringem ao domínio dos dados que podem ser representados no modelo entidade-relacionamento.  Exemplo de caso em que não são a solução ideal é para armazenar figuras (CAD por exemplo) onde modelos orientados a objetos são mais eficazes.
+	\item Diferencie fat clients e thin clients.
+%R. Diferenciam-se pela quantidades de camadas funcionando no cliente. Quanto mais enxuto, mais próximo somente da camada de visualização executa no cliente, mais thin o cliente. Quanto mais pesado, mais próxima da camada de dados executa no cliente, mais fat o cliente.
+	\item Cite um exemplo de arquitetura de três diviões, em termos físicos.
+%R. Um exemplo onde muitas vezes vemos uma arquitetura de três divisões, é a organização de sites Web. Neste caso, um servidor Web age como ponto de entrada para um site, passando requisições para um servidor de aplicação no qual ocorre o processamento propriamente dito. Por sua vez, esse servidor de aplicação interage com um servidor de banco de dados.
+
+\end{enumerate}
+
+\end{document}
+

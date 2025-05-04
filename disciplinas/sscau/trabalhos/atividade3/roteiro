@@ -1,0 +1,97 @@
+1. Apresentação:
+
+a) Agradecimento ao chair e aos presentes
+b) Nome
+c) Curso (...sou Mestrando em Computação do PPGC, na Universidade Federal de Pelotas)
+e) Titulo do Trabalho - Dizer que é uma revisão
+
+2. Roteiro
+
+3. Introdução
+
+Temos desenvolvido e aferido métodos de coleta em tempo real, que exploram serviços de telefonia trocam pacotes digitais disponíveis nas áreas metropolitanas. O Sistema de Monitoramento de Arritmia (AMS) é um sistema de telemetria sem fio testado e desenvolvido na NASA e na Case Western Reserve University Heart & Vascular Center. AMS recolhe sinais de ECG em tempo real a partir de doentes acamados ou móveis, combina os dados de localização GPS, e transmite ambos a uma estação remota para a visualização e controlo.
+
+
+Esta apresetação é baseada em uma matéria publicada no site www.computer.org/pervasive e foi publicada em 2004.
+Protótipo desenvolvido pela NASA de um sistema de monitoramento em tempo real de sinais de ECG para prevenção de arritmias graves e ataques cardíacos;
+Obtem sinais de ECG em tempo real de um paciente móvel ou em home care;
+Envia localização do paciente e sinais de ECG para uma central de monitoramento e controle.
+
+FUNCIONALIDADES
+Usa tecnologias de comunica ̧ ̃o comerciais (bluetooth, GPS,
+ca
+WiFi 802.11b);
+Permite uso por cidad ̃os comuns (grandes centros ou  ́reas
+a
+a
+rurais) ou astronautas;
+Usa somente 3 eletrodos para ECG (mede BPM e intervalo
+QRS);
+Caracter ́
+ısticas do sinal de ECG: 250Hz de amostragem, 13
+bits de resolu ̧ ̃o, sensibilidade de 9.99 a +9.99 mV;
+ca
+Bluetooth: transmite nas frequˆncias n ̃o comerciais entre 2.4
+e
+a
+e 2.4835GHz (banda ISM), que possui licen ̧a livre para uso
+c
+industrial, cient ́
+ıfico e m ́dico;
+e
+Os sinais de ECG s ̃o apresentados no call center com atraso
+a
+entre 10 a 30s.
+
+
+
+
+WEARABLE SERVER
+
+É um pequeno coletor de dados ao qual o paciente fica conectado;
+Composto por um ECG (eletrocardiograma) que coleta as atividades elétricas do músculo cardíaco através de biosensores e envia por Bluetooth para o central server;
+Possui indicação visual do estado da bateria, perda de comunicação e registro de eventos;
+Possui 2 botões:
+Botão de pânico pelo qual o cliente pode enviar um alerta para o sistema central, o qual se encarrega de chamar um serviço de emergência, passando a localização do usuário;
+Botão para o paciente indicar um alerto não-crítico (indicar alguma sensação anormal).
+
+
+
+
+
+CENTRAL SERVER
+É um dispositivo móvel como um Palm que funciona como um pequeno servidor localizado próximo ao cliente. 
+Executa funções como compressão de dados, localização através de GPS e detecção de sinais de arritmias rudimentares. Transmite esses dados pelo modem para o call center através de uma linha celular privada de dados (acessa internet através de GPRS always on) baseada no protocolo TCP/IP. 
+O GPS se comunica com o central server via WiFi, usa sinais de pelo menos 3 satélites e possui uma precisão de aproximadamente 10m.
+Botão para o paciente indicar um alerto não-crítico (indicar alguma sensação anormal).
+
+
+CALL CENTER
+Usado pelo profissional médico para monitorar o sinal ECG e transmitir um alerta caso detecte alguma situação de risco. 
+Os dados dos biosensores são armazenados em um buffer e a cada 20 segundos, esse buffer é transmitido para este call center. 
+Todas as informações são acessadas através de um internet browser.
+
+
+
+
+
+
+
+
+4.Computação em Nuvem
+a) Idéia Geral
+b) Características (destacar SLA)
+c) Caracterização de uma nuvem
+d) Arquitetura
+e) Desafios
+
+5. Computação Autonômica
+a) Idéia Geral
+b) Características
+
+6. Proposta
+a) Descrição (destacar SLA)
+
+7. Considerações Finais
+a) devolve a palavra ao chair
+b) deixa aberto a questões

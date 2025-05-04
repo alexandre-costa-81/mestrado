@@ -1,0 +1,62 @@
+== PESQUISA ==
+
+artigo retirado da revista precom magazine 2004/10
+http://nslab.ee.ntu.edu.tw/iSpace/seminar/papers/200410_percom_magazine/b4042.pdf#page=5&zoom=auto,0,300
+
+link para percom magazine com o link para a revista: http://nslab.ee.ntu.edu.tw/iSpace/seminar/index.php?action=list&year=200410&category=percom_magazine&pattern=
+
+No site - Network and Systems Laboratory: http://nslab.ee.ntu.edu.tw/ dentro da sessão: ispace
+
+
+INTRODUÇÃO
+
+O sistema dado foi desenvolvido em 2004 por este motivo foram usada tecnologias da época.
+
+Fala que pode substituido a tecnologia usada por outra sem mudar os requisitos do sistema. Foi desenvolvido para atuar em diversas localidades tanto em areas metropolitanas como areas ruais. 
+Alternative technologies can easily replace existing components without altering the system requirements. The plug-and-play design serves diverse locales, from metropolitan areas with high-data-rate digital communication systems to rural locales with older cellular telephony to space-based platforms with microgravity, radiation, and safety to consider. 
+
+
+A sessão Wearable server and ECG collection fala de informações tecnicas de ECG. Explica como o sensor ECG envias as informações para o WEARABLE SERVER
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+== RESUMO DO AMS no site: http://www.grc.nasa.gov/WWW/RT/2003/7000/7140york.html ==
+Telemedicina está dando um passo a frente com os esforços dos membros da equipe do Centro de pesquisa NASA Glenn, do campus MetroHealth da Case Western University e da Universidade de Akron.
+
+O Sistema de Monitorização de arritmia (AMS) é um sistema desenvolvido e testado no Glenn que recolhe os sinais em tempo real do electrocardiograma (ECG) de um paciente em casa ou na rua, combina estes sinais com o sistema de posicionamento global (GPS) e os transmite para um computador remoto para exibição e monitoramento.
+
+Aproximadamente 300.000 americanos morrem a cada ano por ataques cardíacos súbitos, que são casos de arritmia.
+
+No entanto, nem todos os pacientes identificados em risco de arritmias podem ser monitorados continuamente por causa de limitações tecnológicas e económicas.
+
+Esses pacientes, que estão em risco moderado de arritmias, beneficiaria de uma tecnologia que permitiria um acompanhamento contínuo a longo prazo de ritmos cardíacos elétricos fora do ambiente hospitalar.
+
+Integrado Tecnologia Web desenvolvido no Glenn para comandar remotamente e coletar dados de sistemas embarcados utilizando a tecnologia Web é o catalisador para este novo sistema de telemetria (ref. 1).
+
+(ref. 1)
+Daniele, Carl J.: Embedded Web Technology: Internet Technology Applied to Real-Time System Control. Research & Technology 1997, NASA/TM-1998-206312, 1998, pp. 165-166. http://www.grc.nasa.gov/WWW/RT/RT1997/7000/7750daniele.htm
+
+Na arquitetura do sistema end-to-end, sinais de ECG são coletadas de um paciente usando um gravador de eventos e são transmitidos para um computador de mão Assistente Pessoal Digital (PDA) com Bluetooth, uma tecnologia sem fio de curto alcance.
+
+O PDA simultaneamente acompanha a localização do paciente através de uma ligação a um receptor GPS.
+
+Uma ligação de longa distância é estabelecida através de uma conexão de Internet padrão ao longo de um Sistema Global de 2,5 geração para Comunicações Global System for Mobile / General Packet Radio Service (GSM / GPRS) uma infra-estrutura celular, sem fio.
+
+Então, o sinal digital é transmitido a um centro de atendimento de controlo por profissionais médicos.
+
+

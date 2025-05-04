@@ -1,0 +1,246 @@
+% \documentclass{beamer}
+%\documentclass[10pt]{beamer}
+
+\documentclass[10pt, pdf,xcolor=pdftex,dvipsnames,table]{beamer}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8] {inputenc}
+\usepackage [T1] {fontenc}
+
+%\usepackage[latin1]{inputenc}
+\usepackage{pgfpages}
+%\usepackage{fancyvrb}
+\usepackage{times}
+%\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{pxfonts,txfonts}
+\usepackage{url}
+\usefonttheme{structurebold}
+\usepackage{hyphenat}
+\usepackage{multicol}
+\usepackage{todonotes}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{fixltx2e}
+% \usepackage[table]{xcolor}
+%\usepackage{palatino}
+
+\usepackage{listings} % para inserir codigo fonte
+\lstset{extendedchars=true,
+breaklines=true,
+frame=tb,
+basicstyle=\footnotesize,
+stringstyle=\ttfamily,
+showstringspaces=false
+}
+
+
+%\setbeamercolor{structure}{fg=Red!70!black}
+%\setbeamercolor{structure}{bg=White}
+%\setbeamercovered{transparent}
+%\usetheme{Madrid}
+
+%==================================================================================
+
+% \definecolor{DarkGreen}{rgb}{0,.5,0}
+% \definecolor{DarkRed}{rgb}{.5,0,0}
+% \definecolor{DarkBlue}{rgb}{0,0,.5}
+
+\renewcommand{\lstlistingname}{Listagem}
+
+\newcommand{\x}{\textbf{\textcolor{DarkGreen}{$\surd$}}}
+\newcommand{\xx}{\textbf{\textcolor{DarkBlue}{$\odot$}}}
+\newcommand{\xxx}{\textbf{\textcolor{DarkRed}{$\times$}}}
+
+%==================================================================================
+
+% mudar a quantidade de slides por pagina
+% \pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+
+% \mode<presentation>
+% \mode<trans>
+% \mode<handout>
+
+% THEMES INSTALADOS
+% \usetheme{default}
+% \usetheme{AnnArbor}	% BOM
+% \usetheme{Antibes} %BOM
+% \usetheme{Bergen}
+% \usetheme{Berkeley}	% BOM
+% \usetheme{Berlin}	% BOM
+% \usetheme{Boadilla}
+% \usetheme{boxes}
+% \usetheme{CambridgeUS}	% BOM
+% \usetheme{Copenhagen}	% BOM * grande
+% \usetheme{Darmstadt}	% BOM *
+% \usetheme{Dresden}	% BOM ++ grande
+% \usetheme{Frankfurt}	% BOM grande
+% \usetheme{Goettingen}	% BOM nao
+% \usetheme{Hannover} 	% BOM nao
+% \usetheme{Ilmenau}	% BOM grande
+% \usetheme{JuanLesPins} %nao
+% \usetheme{Luebeck} %nao grande
+% \usetheme{Madrid}
+% \usetheme{Malmoe} %grande
+% \usetheme{Marburg}	% BOM nao
+% \usetheme{Montpellier} %nao
+% \usetheme{PaloAlto} %nao
+% \usetheme{Pittsburgh}
+% \usetheme{Rochester}
+% \usetheme{Singapore}	% BOM nao
+% \usetheme{Szeged}	% BOM nao
+% \usetheme{Warsaw}	% BOM grande
+
+
+%==================================================================================
+% TEMAS EXTRAS
+% DEVEM ESTAR NO DIRETORIO DE TRABALHO
+%\usetheme{progressbar}
+%\usetheme{lankton-keynote}
+\usetheme{Amsterdam}
+%Options
+%\progressbaroptions{headline=sections,frametitle=normal,titlepage=normal}
+%\progressbaroptions{headline=sections,frametitle=normal,titlepage=picture}
+
+%\usecolortheme{progressbar}
+% \usefonttheme{progressbar}
+
+%\useoutertheme{progressbar}
+
+% Define os elementos dentros dos frames
+%\useinnertheme{progressbar}
+
+%==================================================================================
+
+% THEMES DE CORES
+
+% \usecolortheme{beaver} % azul e vermelho - feio
+% \usecolortheme{seahorse} % preto - bacaninha
+% \usecolortheme{crane}	% Laranja - feio
+%\usecolortheme{dove} % branco e preto - legal
+% \usecolortheme{albatross} % fundo azul escuro e fonte amarela
+% \usecolortheme{rose} %OK  Fonte verde igual ao padrao
+% \usecolortheme{orchid} % parecido com original
+% \usecolortheme{beetle} % muito escura
+% \usecolortheme{fly} % escura
+% \usecolortheme{lily}
+%\usecolortheme{seagull}  % CINZA - Legal
+% \usecolortheme{sidebartab} % nao
+% \usecolortheme{whale}	% *
+% \usecolortheme{dolphin} % azul   +-
+% \usecolortheme{wolverine} % amarelo e azul
+% \usecolortheme{default} % azul e branco
+
+%==================================================================================
+
+% Efeitos:
+% \transdissolve %dissolve a lamina anterior;
+% \transsplitverticalout % a proxima lamina se abre como uma cortina no sentido horizontal;
+% \transblindshorizontal % a lamina anterior converte-se linha a linha.
+
+% Para gerar apenas as páginas sem efeitos de overlay use (bom para imprimir):
+% \usepackage[handout]{beamer}
+
+% Para colocar número de páginas no slide:
+% \setbeamertemplate{footline}[frame number]
+
+% Para retirar a barra de navegação:
+\setbeamertemplate{navigation symbols}{}
+
+% inserir logotipo a apresentação
+\pgfdeclareimage[height=1.5cm]{logo}{images/lups_oficial.png}
+\logo{\pgfuseimage{logo}}
+
+% Ativa ou desativa as anotações
+\setbeameroption{hide notes}
+%\setbeameroption{show notes}
+
+%==================================================================================
+
+% TITULO DA APRESENTACAO
+\title{Recursos na Computação em Nuvem: Uma Arquitetura Autonômica para Gerenciamento do Consumo de Energia}
+%\title{Gerenciamento de Recursos Conscientes do Consumo de Energia na Computação em Nuvem \thanks{Projetos PRONEX/FAPERGS/CNPq GREEN-GRID Computação de Alto Desempenho Sustentável.}}
+
+%Autor
+\author[Neves, Pilla, Yamin]{\textbf{Vilnei Marins de Freitas das Neves} \\
+\and
+	Prof. Dr. Maurício Lima Pilla (Orientador) \\
+\and 
+	Prof. Dr. Adenauer Corrêa Yamin (Co-orientador)
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Instituição
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\institute{Mestrado em Computação \\ Programa de Pós-Graduação em Computação \\Universidade Federal de Pelotas \\
+\url{vilnei.neves@inf.ufpel.edu.br} 
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Data
+% sem data (\date{})
+% dia de hoje  \date{\today}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\date{Agosto de 2013}
+
+
+%\date{
+%Orientador: Prof\textordmasculine. Dr. Maurício Lima Pilla \\ 
+%Co-orientador: Prof\textordmasculine. Dr. Adenauer Corrêa Yamin \\ 
+%\vspace{3mm} ERAD 2013 \\ 
+%	  \vspace{3mm} Março de 2013
+%}
+
+\begin{document}
+% \AtBeginSection[]{
+% \begin{frame}{Table of Contents}
+% 	\tableofcontents[currentsection]
+% \end{frame}
+% }
+
+% \AtBeginSection[]{%
+%   \begin{frame}<beamer>
+%     \frametitle{Outline}
+%     \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide/show/hide]
+%   \end{frame}
+%   \addtocounter{framenumber}{-1}% If you don't want them to affect the slide number
+% }
+
+% % % % % % % % % % % % % % % % % % % % % %
+\frame{\titlepage}
+\pgfdeclareimage[height=0.7cm]{logo}{images/lups_timbre.png}
+\logo{\pgfuseimage{logo}}
+
+
+% % % % % % % % % % % % % % % % % % % % % %
+\frame{\tableofcontents}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Conteúdo da Apresentação
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{conteudo.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Último Slide
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame
+{
+	\pgfdeclareimage[height=1.5cm]{logo}{images/lups_oficial.png}
+	\logo{\pgfuseimage{logo}}
+	
+	\logo{\vspace{3mm} \begin{large} \textbf{Obrigado!} \end{large}}
+    \titlepage
+}
+\end{document}
+

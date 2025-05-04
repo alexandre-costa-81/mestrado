@@ -1,0 +1,278 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolort	heme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[SSCAU]{Análise de mobilidade urbana através de dados da rede de telefonia móvel celular} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Alexandre Costa} % Your name
+\institute[UFPEL] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Universidade Federal de Pelotas \\ % Your institution for the title page
+\medskip
+\textit{alexandre.gcosta@gmail.com} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+%------------------------------------------------
+\section{Capa}
+%------------------------------------------------
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+%------------------------------------------------
+\section{Sumário}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Introdução} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Artigo}
+	\begin{itemize}
+		\item Nome: Análise de mobilidade urbana através de dados da rede de telefonia móvel celular
+		\item Pablo A. A. Araújo, Teobaldo L. Júnior, Yuri G. Dantas, Alisson V. Brito, Alexandre N. Duarte
+		\item Centro de Informática – Universidade Federal da Paraíba (UFPB)
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Resumo}
+	\begin{block}{Motivação}
+		\begin{itemize}
+			\item Problemas como o aumento populacional, congestionamento de veículos e a violência;
+			\item O crescente numero de celulares.
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Objetivo}
+		Analisar a viabilidade de utilização de simuladores de trafego, associados a dados de mobilidade de dispositivos móveis celulares para analise e previsão de padrões de mobilidade urbana.
+	\end{block}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Introdução}
+	\begin{itemize}
+		\item A Motivação esta de acordo com a do resumo
+		\begin{itemize}
+			\item {Problema}
+			\item Congestionamento
+		\end{itemize}
+		\item Solução
+		\begin{itemize}
+			\item Entendimento de como a população se movimenta na cidade é o ponto chave
+		\end{itemize}
+		\item Objetivos
+		\begin{itemize}
+			\item Estudar a viabilidade de se utilizar simuladores de tráfego associados a dados de mobilidade
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+%------------------------------------------------
+\section{Trabalho Relacionados} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Trabalho Relacionados}
+	\begin{itemize}
+		\item Apresenta 6 trabalhos relacionados;
+		\item Todos analisaram os dados colhidos anonimamente de rede de telefonia celular;
+		\item Propõe utilizar os dados colhidos para realizar simulações de tráfegos.
+	\end{itemize}
+\end{frame}
+
+
+
+%------------------------------------------------
+\section{Simulação} 
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Symulation of Urban Mobility - SUMO}
+	\begin{itemize}
+		\item Sistema de código aberto;
+		\item Realiza simulações com tráfego de veículos;
+		\item Porque o sumo:
+		\begin{itemize}
+			\item Importação de mapas no formato XML;
+			\item Customização dos mapas importados;
+			\item Pode incluir pontos moveis tais como veículos e ônibus;
+			\item Gera um arquivo de log do tempo de simulação.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Cenários para as simulação}
+	\begin{itemize}
+		\item Foi utilizado 2 cenários
+		\item Cenário 1
+		\begin{itemize}
+			\item Objetivo de testar de o SUMO seria capaz de capturar movimento entre telas e gerar corretamente os logs.
+		\end{itemize}
+		\item Cenário 2
+		\begin{itemize}
+			\item Objetivo de testar se o SUMO seria capaz de capturar o ingresso de veículos de fora da área de cobertura das células.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+%------------------------------------------------
+\section{Conclusões} 
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Clareza da motivação e dos objetivos}
+	\begin{itemize}
+		\item Motivação
+		\begin{itemize}
+			\item Apresentada de forma clara e objetiva.
+		\end{itemize}
+		\item Objetivos
+		\begin{itemize}
+			\item Também foi apresentado de forma clara e objetiva.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Qualidade da discução dos trabalhos relacionados}
+	\begin{itemize}
+		\item Quantidade de discussões
+		\begin{itemize}
+			\item O artigo apresenta as discussões de forma clara e objetiva.
+			\item Apresenta formas e resultados
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Avaliação das contribuições do trabalho}
+	\begin{itemize}
+		\item O artigo tem uma contribuição sem significativa
+		\begin{itemize}
+			\item Mostra que é viável a utilização de um simulador de trafego alimentado com dados de posicionamento de dispositivos móveis celulares e de áreas de cobertura de estações rádio-base, como ferramenta de estudo para mobilidade urbana.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
+

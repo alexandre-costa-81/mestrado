@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simple Sectioned Essay Template
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing essay content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article} % Default font size is 12pt, it can be changed here
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry} % Required to change the page size to A4
+\geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
+
+\usepackage{graphicx} % Required for including pictures
+
+\usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
+\usepackage{wrapfig} % Allows in-line images such as the example fish picture
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\linespread{1.2} % Line spacing
+
+%\setlength\parindent{0pt} % Uncomment to remove all indentation from paragraphs
+
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+\textsc{\LARGE Universidade Federal de Pelotas}\\[1.5cm] % Name of your university/college
+%\textsc{\Large Keeping a Beat on the Heart}\\[0.5cm] % Major heading such as course name
+%\textsc{\large Arrhythmia Monitoring System (AMS)}\\[0.5cm] % Minor heading such as course title
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Survey of Context Provisioning Middleware}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+Alexandre Costa \\
+Caue Duarte
+\end{flushleft}
+\end{minipage}
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\tableofcontents % Include a table of contents
+
+%\newpage % Begins the essay on a new page instead of on the same page as the table of contents 
+
+%----------------------------------------------------------------------------------------
+%	PERGUNTAS
+%----------------------------------------------------------------------------------------
+
+\section{Perguntas} % Major section
+
+\begin{itemize}
+	\item O texto fala em coleta de dados brutos sobre os usuários e seu ambiente aplicando diferentes técnicas de raciocínio, quais são essas técnicas? 
+	\item Como são utilizadas essas técnicas?
+	\item Sistemas sensíveis ao contexto são normalmente concebidos com a adoção de middleware projetados em camadas, como se da a distribuição e funcionamento destas camadas?
+	\item Quando um grupo de sensores passam a formar um contexto?
+	\item No subitem B (Context-aware Systems) da introdução fala que cada camada baseia-se na informação disponibilizada pela camada abaixo dela, em seguida é citado um exemplo que a Context Processing Layer usa dados coletados da Data Acquisition Layer. Qual ou quais camadas representam a Data Acquisition Layer?
+	\item No mesmo paragrafo fala também que Applications Layer interage com a Context Processing Layer que não tem ligação direta com a Applications Layer e no inicio do paragrafo fala que cada camada baseia-se na informação disponibilizada pela camada abaixo dela. Porque Applications Layer interage com a Context Processing Layer se ela não esta logo abaixo?
+\end{itemize}
+
+
+\end{document}
+

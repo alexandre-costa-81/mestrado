@@ -1,0 +1,266 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simple Sectioned Essay Template
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing essay content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article} % Default font size is 12pt, it can be changed here
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry} % Required to change the page size to A4
+\geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
+
+\usepackage{graphicx} % Required for including pictures
+
+\usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
+\usepackage{wrapfig} % Allows in-line images such as the example fish picture
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\linespread{1.2} % Line spacing
+
+%\setlength\parindent{0pt} % Uncomment to remove all indentation from paragraphs
+
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+\textsc{\LARGE Universidade Federal de Pelotas}\\[1.5cm] % Name of your university/college
+%\textsc{\Large Keeping a Beat on the Heart}\\[0.5cm] % Major heading such as course name
+%\textsc{\large Arrhythmia Monitoring System (AMS)}\\[0.5cm] % Minor heading such as course title
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Arrhythmia Monitoring System (AMS)}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+Alexandre Costa % Your name
+\end{flushleft}
+\end{minipage}
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Include a table of contents
+
+\newpage % Begins the essay on a new page instead of on the same page as the table of contents 
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\section{Introdução} % Major section
+
+Este é um resumo de uma matéria publicada na revista PERCOM que trata de um sistema de monitoramento de arritimia onde o titulo foi "Keeping a Beat on the Heart".
+Um sistema de monitoramento de arritmia em temo real desenvolvido na NASA que 
+recolhe sinais de eletrocardiograma em tempo real a partir de um paciente móvel ou home care, combinados com dados de localização GPS, e transmitir esta informação para uma estação remota para visualização e monitoramento.
+
+Imagine o alívio de um paciente que sofre de arritmia cardíaca que pode voltar para casa enquanto está sendo monitorado por profissionais de saúde 24 horas por dia. O paciente não precisa se ​​preocupar em perder um indicador importante e sofre um ataque cardíaco fatal, graças à tecnologia desenvolvida originalmente para conduzir experimentos sobre o Space Shuttle. Cerca de 400.000 americanos morrem a cada ano por ataques cardíacos "súbitos". A pesquisa médica revela que os padrões de atividade elétrica no coração pode prever esses eventos cardíacos letais conhecidos como arritmias. Felizmente, a medicina moderna pode detectar certas arritmias, como a fibrilação ventricular (perda de ritmo cardíaco regular e conseqüente perda de função) e taquicardia ventricular (batimentos cardíacos rápidos), e tratá-los adequadamente. Hoje, os pacientes com risco moderado para as arritmias podem se beneficiar de uma tecnologia que permitiria profissionais de saúde para monitorar continuamente os seus ritmos cardíacos elétricos fora do ambiente hospitalar.
+
+Sistemas de telemetria médica , também conhecida como telemedicina , estão evoluindo rapidamente como os avanços da tecnologia de comunicação sem fio , evidenciado pelos produtos comerciais e protótipos de pesquisa para monitoramento remoto de saúde que têm aparecido nos últimos anos (ver em "trabalhos relacionados" para obter outros recursos atuais ). Os sistemas sem fio deixam os pacientes mover-se livremente em sua casa e ambientes de trabalho enquanto está sendo monitorado remotamente pelos profissionais de saúde. A disparidade existe, no entanto, no grau de capacidade de resposta aos dados recolhidos. Eletrocardiograma (ECG) de primeira geração transmite dados usando a tecnologia sem fio de curto alcance , permitindo que os pacientes se deslocar de um hospital local para outro enquanto ainda está sendo continuamente monitorada. A próxima geração permite que os pacientes fiquem em casa, conectado a monitores de ECG com dispositivos de coleta que os pacientes usam para descarregar os dados em algum momento - no final do dia ou da semana , por exemplo. Isso pode assumir a forma de fornecimento de fitas de dados diretamente para um médico , transmitindo dados periodicamente através de um modem de telefone, ou, mais recentemente , a transferência de dados em massa através da Internet. A conseqüência desses arranjos é que os dados em tempo real não são imediatamente acessíveis para o diagnóstico e ajuda.### Para algumas pessoas, a falta de resposta imediata a um evento cardíaco vai significar a morte, se as equipes de emergência não são alertados e não consegue localizar o paciente rapidamente.
+
+Temos desenvolvido e aferido métodos de coleta em tempo real, que exploram serviços de telefonia trocam pacotes digitais disponíveis nas áreas metropolitanas. O Sistema de Monitoramento de Arritmia (AMS) é um sistema de telemetria sem fio testado e desenvolvido na NASA e na Case Western Reserve University Heart & Vascular Center. AMS recolhe sinais de ECG em tempo real a partir de doentes acamados ou móveis, combina os dados de localização GPS, e transmite ambos a uma estação remota para a visualização e controlo.
+
+%----------------------------------------------------------------------------------------
+%	System architecture
+%----------------------------------------------------------------------------------------
+
+\section{System architecture} % Major section
+
+Nós criamos o sistema a partir de componentes comercias de serie (COTS) e tecnologias comercialmente disponiveis no mercado. Tecnologias alternativas pode facilmente substituir os componentes existentes, sem alterar os requisitos de sistema. O design plug-and-play serve para diversos locais, de áreas metropolitanas com os sistemas de comunicação digitais de alta taxa de dados a localidades rurais com telefonia celular ou plataformas baseadas no espaço com microgravidade, radiação e segurança a considerar. Com esses objetivos em mente, nós descrevemos o sistema em termos de funcionalidade, bem como estrutura.
+
+A Figura 1 mostra a arquitetura do sistema end-to-end. O wearable server é uma pequena colecção de dados e o dispositivo de comunicação. O paciente transmite sinais para um "central server" proximo ao paciente. O servidor central executa várias funções, incluindo a compressão de dados, reconhecimento de local por meio de sinais de GPS, e a detecção de arritmia rudimentar. Ele também serve como um gateway sem fio a uma rede de comunicação celular longa distância. Os dados são encaminhadas através da Internet para a central de atendimento, onde os profissionais médicos monitoram o sinal de ECG e respondem aos alertas.
+
+\begin{figure}[H] % Example image
+\center{\includegraphics[width=0.5\linewidth]{figura1-the-arrhythmia-monitoring}}
+\caption{The Arrhythmia Monitoring.}
+\label{fig:speciation}
+\end{figure}
+
+A Figura 2 mostra o desenho de cada componente.
+Este projeto modular suporta objetivos de pesquisa comuns que envolvem a saúde humana no espaço, bem como na Terra. Arritmias cardíacas apresentam um grande risco de saúde para os astronautas. De facto, vários casos de arritmias já ocorreram no espaço. Proporcionar um sistema de alerta que monitora continuamente a função cardíaca pode reduzir os riscos de um astronauta de perder a consciência durante operações críticas ou até mesmo de morrer por falta de resposta e bom atendimento.
+
+Podemos modificar o sistema paciente móvel terrestre para substituir um ECG Holter com fio com sensores sem fio capaz de transmissão sem fio de curto alcance para enviar sinais para uma unidade de servidor wearable-central combinada com o tamanho de um telefone celular. Na Estação Espacial Internacional, o servidor central vai funcionar como um dispositivo separado que recolhe bio-sinais a partir de vários dispositivos de monitoramento de saúde. Localização GPS, obviamente, não é uma consideração para os astronautas.
+
+%------------------------------------------------
+
+\subsection{Wearable server and ECG collection} % Sub-section
+
+Um ECG representa a atividade elétrica do músculo cardíaco, como é gravado a partir de sensores de superfície colocados em locais normais no corpo. Passagem de corrente na direcção de e para longe da extremidade positiva de um eléctrodo bipolar provoca uma grande deformação da forma de onda do ECG. A corrente eléctrica que flui obliquamente ao eléctrodo provoca uma deflexão mais pequena, enquanto a corrente que flui perpendicularmente pro-duz uma deflexão bifásico no gravador. Cada chumbo (um vetor elétrico) "vê" o coração em um plano diferente. Todas essas informações podem ser plotados como uma série de desvios e ondas que podem ser representados graficamente, cada um contendo informações exclusivas, bem como informação redundante sobre o ritmo do coração.
+
+A paciente remoto normalmente usa um Holter ECG que coleta dados por meio de fios ligados aos biossensores pele de contato. O wearable Holter ECG utiliza apenas três pistas. A ECG típico de diagnóstico de descanso exibe 12 derivações utilizando 10 biossensores. A configuração de três derivações fornece as batidas por minuto rudimentares e intervalo QRS (que mede a contração de ambos os ventrículos, ou parte forte do batimento cardíaco) necessárias para avaliar rapidamente os Arritmia sendo monitorados.
+
+O servidor usável recebe sinais analógicos a partir dos sensores de ECG e digitaliza os sinais. A Figura 2a mostra um protótipo de sistema que usa um micro controlador 8051 em uma placa de desenvolvimento ligado a três derivações padrão ECG. O sistema recolhe os dados a uma taxa de amostragem de 250 Hz. Um exemplo contém três leituras de ECG digitalizadas com 13 bits de resolução. A gama dinâmica dos dados é de 9,99 -9,99 milivolts.
+
+%------------------------------------------------
+
+\subsection{Short-range wireless subsystem} % Sub-section
+
+O servidor wearable próxima transmite coletadas amostras através de uma ligação wireless para o servidor central. Os dados de ECG digitalizados, cabeçalhos, começar, e stop bits preencher um 9 - tamanho da mensagem mínimo byte. A taxa de 4 milissegundos de aquisição de dados requer uma taxa de transmissão mínima de 22,5 Kbps. Isso define um limite sobre os requisitos de comunicação para os componentes sem fio de curto alcance. Os componentes COTS mais amplamente disponíveis e suportados são Bluetooth e 802.11b (Wi-Fi).
+
+Nós selecionamos Bluetooth para este protótipo, porque é de baixo custo, baixo consumo de energia, e robusto. Os transmite antena interna no industrial licença livre, científica e médica banda de frequência (ISM) entre 2,4 e 2,4835 GHz. Salto de frequência reduz o desbotamento de sinal e interferência de outros dispositivos próximos transmissão na banda ISM. Rádios de classe superior proporcionar maior alcance de transmissão e taxas de dados, mas em maior custo e consumo de energia. Dispositivos Wi-Fi que operam na mesma faixa de freqüência de 2,4 GHz ISM serviria bem no sistema de monitoramento remoto de arritmia, mas atualmente, dispositivos sensores mais médicos suportar comunicações Bluetooth.
+
+Embora a banda ISM é licença livre, muitos outros dispositivos compartilham a mesma banda. O ambiente em casa sozinho, provavelmente, tem um forno de microondas, telefone sem fio, ou qualquer outro transmissor sem fio para um dispositivo, como uma câmera de vídeo. Pacientes a longo prazo pode retornar ao trabalho e encontrar um escritório ou uma rede campus povoada por PCs Wi-Fi habilitados em cada mesa. Esses itens tornaram-se tão difundida que raramente pensamos deles em termos de partilha de um meio regulamentado.
+
+O problema surge a partir de sinais de colisão e corrompendo outro. Até o momento, nenhum estudo definitivo foi aceite que caracteriza completamente esses efeitos. Mais pesquisas são necessárias para quantificar e prever a degradação de transferência para garantir que o desempenho não irá deteriorar-se a um ponto em que o sistema de telemedicina torna-se essencialmente inoperante.
+
+%------------------------------------------------
+
+\subsection{Central server and data management} % Sub-section
+
+O servidor central é o ponto médio lógica entre um paciente e call center. O componente é um protótipo de tungsténio palma W PDA. Dados de ECG , notificações de pacientes, e as coordenadas de localização GPS opcionais são multiplexados e transmitidos continuamente ao longo de um único link wireless de longa distância para a central de atendimento através de um modem celular built -in.
+
+Vários fatores influenciam o protocolo de mensagens pelo sistema. Capacidades do dispositivo e um provedor de gerenciamento de sessão unidade de serviços sem fio . Nosso PDA conecta a uma rede privada em uma operadora de longa distância que atribui um endereço de Protocolo de Internet privada para uma única sessão de comunicação. Uma vez conectado , os dados podem ser enviados e recebidos na demanda em que é referido como um "always-on " serviço IP -based. Facturação é baseada na quantidade de dados transmitidos em oposição ao tempo de conexão. Com isto em mente , ea capacidade limitada dos pequenos dispositivos portáteis , o provedor de serviço de telefonia exige que o PDA iniciar a comunicação com qualquer serviço exterior. Isso evita que as contas de spam inflacionados , mas mais significativamente, o canal de comunicação deve ser sempre livres para transmitir dados cardíacos críticas e alertas de emergência.
+
+O servidor central inicia e estabelece uma conexão e imediatamente começa streaming de dados. A especificação de interface usa um , apátrida , protocolo de transmissão de dados serial bidirecional. TCP / IP lida com a verificação de erros , correção e transmissão de dados. Isto é essencial para a entrega de um sinal de ECG de alta integrit . O servidor central buffers de dados até ser confirmada.
+
+A transmissão de 24/7 contínuo de três fluxos de ECG amostrados a 250 Hz consome largura de banda considerável. Uma abordagem para reduzir o tempo e custo da comunicação é reduzir a quantidade de dados transmitidos . Existem algoritmos de compressão sem perdas que foram desenvolvidos especificamente para preservar sinais de ECG " integrity.3 elegemos para trabalhar com sinais descompactados no primeiro protótipo , porque não exigem um sinal perfeitamente reconstruído para as condições que estamos estudando. Além disso , o tempo ganhou transmitindo menos bytes deve ser equilibrado contra o tempo perdido em computação e consumo de bateria . Com aplicações que requerem análise de sinal preciso, você pode precisar de considerar esta questão.
+
+Implementamos detecção de arritmia de alto nível para vários indicadores -chave em seu componente. O protótipo usa uma tela LED , mas uma unidade médica comercialmente viável deve incorporar um alerta sonoro ou iniciar uma chamada 911 automática durante uma emergência desse tipo se não houver resposta do call center. Nosso sistema de bom desempenho utilizando um protocolo de reconhecimento cronometrado simples entre a unidade do paciente e de call center. Durante os ensaios limitados , nós não encontramos os alarmes falsos . O sistema de comunicação tratado eventuais atrasos ou descartado pacotes com intervalos, para que o pior cenário experimentado era um LED ficar aceso alguns segundos a mais do que o normal.
+
+%------------------------------------------------
+
+\subsection{Long-distance wireless subsystem} % Sub-section
+
+General Packet Radio Service é uma alta velocidade digital de comutação de pacotes, sem fio, sempre em serviço IP. Dados GPRS é servido através de um gateway GPRS, parte de uma infra-estrutura implementada nos últimos anos, que ainda está em crescimento. Dados móvel é transmitida para uma estação de base, viaja para um centro de comutação móvel, é enviada para a frente para um gateway GPRS (baseado no protocolo) e, a partir daí, entra oficialmente Internet.
+
+%------------------------------------------------
+
+\subsection{Call center and medical monitoring} % Sub-section
+
+Nós projetamos o call center ( ver Figura 2c ), a ser composta de 24/7 por profissionais de saúde qualificados. Este pessoal pode remotamente monitorar um conjunto de pacientes em uma determinada área geográfica determinada pelo telefone da área e Internet infra- estrutura e pelo número de pacientes na área. Nós usamos um alto desempenho, PC comercialmente disponível com um endereço Internet para coletar e exibir o sinal de ECG de 3 derivações em tempo quase real (aproximadamente 10 a 30 segundos de latência ), utilizando tradicionais gráfico gráficos tira ao lado de um mapa mostrando o paciente mais recentemente adquirido localização.
+
+O sistema também transmite dados não- ECG do registrador de eventos paciente para proporcionar uma imagem mais rica do paciente e do status do componente . Nós projetamos o sistema de comunicação a ser de duas vias para que o pessoal de call center reconhecer eletronicamente eventos médicos e operacional. O sistema transmite um alerta automático quando o paciente está tendo ou está prestes a ter um evento significativo arritmia. O servidor wearable tem indicadores visuais para bateria fraca, perda de comunicação e gravação de eventos , mas o PDA vai transmitir essas condições para o call center para garantir que eles são abordados. Os pacientes podem pressionar um botão no servidor wearable para enviar um alerta não crítico para o call center se um coração palpitar ou outro sentimento incomum ocorre . O ponto de alerta pode ser marcado no arquivo do sinal de ECG para um cardiologista para inspecionar mais tarde. O sistema também possui um botão de pânico para que os pacientes podem enviar um alerta crítico para obter ajuda. Chame o pessoal do centro será capaz de enviar 911 serviços com a mais recente localização GPS. Esta interface é usado conforme necessário. Janelas pop-up são exibidas no call center para esses eventos.
+
+%----------------------------------------------------------------------------------------
+%	MAJOR SECTION X - TEMPLATE - UNCOMMENT AND FILL IN
+%----------------------------------------------------------------------------------------
+
+\section{Implementation issues}
+
+Devemos abordar várias questões práticas, antes de podermos comercializar este dispositivo. Recolha e transmissão de dados são questões eminentemente técnica, mas inter-pretação e servindo-se esta informação apresenta problemas operacionais. Algoritmos de detecção de arritmia variam em complexidade. A transmissão sem fio de ECG intimamente ligado com coordenadas GPS acende debate sobre médicos e localização de privacidade. Além disso, a tecnologia Web permite o acesso generalizado a todas essas informações com o clique de um mouse.
+
+%------------------------------------------------
+
+\subsection{Location services} % Sub-section
+
+Quando alguém está passando por um evento de arritmia , o tempo é da essência. Para muitas pessoas, a capacidade de pedir ajuda em caso de emergência é a principal razão que eles possuem um telefone celular. Mas a ajuda pode não vir com o tempo, se em tudo, se as equipes de emergência não sejam expedidos com informação adequada e não consegue localizar o chamador rapidamente.
+
+Por esta razão , o protótipo rastreia localização paciente utilizando um emissor-receptor de GPS equipado com uma antena de GPS de 1,5 GHz e uma antena Bluetooth 2.4 GHz . O receptor corrige uma posição a cada 10 segundos uma vez que foi iniciado e adquire um mínimo de três sinais de satélite GPS . A precisão é normalmente dentro de 10 metros. O componente GPS coleta, processa e transmite sinais de satélite através de uma conexão Bluetooth sem fio para o PDA. Localmente, o PDA armazena os dados formatados em um buffer grande o suficiente para armazenar cerca de um ciclo de informações em conformidade com o National Marine Electronics Association 0183 interface padrão para o protocolo de transmissão de dados e tempo. O PDA transmite este buffer para o call center aproximadamente a cada 20 segundos , como parte de um fluxo de dados multiplexados .
+
+Vários fatores ambientais afetam a precisão da localização e da capacidade de adquirir posição do paciente. Edifícios, folhagem densa e outras obstruções podem bloquear os sinais de satélite . De facto, um sinal pode ser totalmente bloqueado , quando um paciente está dentro de um edifício e não para fechar uma janela. Até mesmo certos tipos de película de proteção aplicada a janelas do escritório irá bloquear o sinal. Para acomodar essas situações ocorrem com freqüência, é preciso estabelecer um protocolo operacional. O sistema armazena sempre o mais recente coordenadas e hora , mesmo enquanto o receptor GPS trabalha continuamente para readquirir sinais de satélite perdidos. Nossos cardiologistas sinto que a maioria dos pacientes que usam versões antigas de um produto comercial seria substancialmente sair de casa , para a sua localização não altera com freqüência. Com o tempo , mais fortes receptores GPS irá tornar-se mais prático para este sistema à medida que diminuem de tamanho , custos e requisitos de energia.
+
+%------------------------------------------------
+
+\subsection{Privacy} % Sub-section
+
+Transmissão de dados do paciente para o call center apresenta questões de privacidade localização que a instalação do paciente e médico deve trabalhar fora e que estão em conformidade com estado aplicável , federal, e HIPAA ( Health Insurance Portability and Accountability Act ) regulamentos. A comunidade médica não foi totalmente recomendações desenvolvido para a coleta adequada , uso e retenção de informações. Elementos desta questão sensível incluem freqüência de localização aquisição , a freqüência de transmissão local , a precisão das coordenadas , ea vida desta informação retenção. Bases de dados de arquivo repleto de indicadores de saúde do coração pode inspirar o vilão de um cozinheiro novo Robin , mas acrescentar a essa contínua e tempo - carimbada localização de repente de uma pessoa, o cenário leva a uma inclinação diferente como você percebe o quão desejável banco de dados é para aqueles com menos do que boas intenções .
+
+Esta questão é certamente nova nem negligenciada. As comunicações sem fio e da Lei de Segurança Pública de 1999 foi passado para apoiar 911 serviços de emergência , mas também serve como um catalisador para o desenvolvimento de uma melhor tecnologia de localização . Players dominantes incluem a Comissão Federal de Comunicações , a Cellular Telecommunications Industry Association, e Localização Geográfica / Privacidade grupo de trabalho da Internet Engineering Task Force. As questões de privacidade que está sendo passada para fora envolvem posse da informação de localização e controlo ou divulgação , com ou sem o consentimento do cliente. A comunidade telemedicina deve participar na definição de regras e diretrizes para ajudar a mitigar os riscos de privacidade associados com monitoramento e gravação de movimentos de um paciente em torno do relógio , sem comprometer os benefícios do sistema. Para os ensaios clínicos em curso e previstas , vamos atribuir ao paciente um número de identificação aleatória , então você poderia argumentar que o streaming de dados de ECG em si não fornece nenhuma informação de identificação. No entanto, mesmo com processadores rápidos e algoritmos rápidos, sem um dedicado " Internet médica", a velocidade de comunicação não é garantida . Nossos cardiologistas acham que criptografar este componente poderia sacrificar desnecessariamente preciosos minutos durante um ataque cardíaco . Esta é claramente uma questão aberta a debate.
+
+%------------------------------------------------
+
+\subsection{Pervasive technology} % Sub-section
+
+O controle de acesso à Web e que o call center oferece permite que os dados do paciente partes do sistema com médicos em vários locais. Eles podem acessar os dados por meio de navegadores padrão em execução nos computadores clientes. A URL exclusiva existe para cada paciente monitorado. A Figura 3 mostra a estrutura desta abordagem telemedicina. As ligações entre médico e call center em um sistema comercial deve passar pelo mesmo exame para acesso do usuário, privacidade e segurança da rede.
+
+O software de servidor Web nossos usos protótipo foi originalmente desenvolvido pela NASA para aplicações espaciais de voos. Ele serve como a base para as capacidades Telesciência que dão cientistas acesso em tempo real aos seus experimentos baseados no espaço, pela primeira vez na frota de ônibus e agora na Estação Espacial Internacional.
+
+%------------------------------------------------
+
+\subsection{Arrhythmia detection} % Sub-section
+
+Holter de ECG de doze derivações são difíceis de configurar corretamente e usar. Eles também são sensíveis ao ruído, que vem em muitas formas. Atividade elétrica através do corpo não se limita ao coração. Por exemplo, as contracções musculares e movimento do eléctrodo do movimento do paciente contamina o sinal a um grau. O Holter orientada para a monitorização do paciente é móvel portátil e destina-se para uso onde um diagnóstico áspera da condição do paciente será suficiente. Três ligações do Holter anexar ao infraclavicular direita, o infraclavicular esquerda, eo lado esquerdo do peito, logo abaixo do mamilo.
+
+O algoritmo de detecção de pico R é o método de análise do ECG mais fundamental para a detecção de QRS complexes.6 Figura 4 ilustra um sinal de ECG com o teórico complexo QRS identificado. O intervalo RR mede o tempo entre batimentos cardíacos. Com este cálculo básico, os dados de três chumbo nos dá bastante informações para monitorar pacientes para as seguintes condições:
+\begin{itemize}
+	\item Bradicardia: freqüência cardíaca inferior a 60 batimentos por segundo
+	\item Taquicardia: freqüência cardíaca superior a 100 batimentos por segundo
+	\item Sinus prisão: nenhuma atividade elétrica atrial por três ou mais segundos
+	\item taquicardia ventricular artigo com complexos QRS largo: intervalo QRS superior a 120 milésimos de segundo e freqüência cardíaca de 48 computação pervasiva superior a 100 batimentos por segundo
+	\item de taquicardia supraventricular com complexos QRS estreito: intervalo QRS menos de 120 milésimos de segundo e freqüência cardíaca superior a 100 batimentos por segundo
+\end{itemize}
+
+Quando uma destas condições for detectada, o sistema alerta o centro de chamada e identifica o tipo de problema. Nesse ponto, o processamento no servidor central é mantido a um mínimo de modo a que a comunicação tem prioridade. No entanto, estes indicadores são mais do que suficientes para identificar os problemas para que os pacientes podem procurar ajuda médica imediatamente.
+
+%------------------------------------------------
+
+\subsection{Battery life} % Sub-section
+
+Realizamos vários estudos empíricos sobre a vida da bateria. O elo mais fraco foi o Tungsten W. A vida útil da bateria, funcionamento do sistema com Bluetooth contínua , GPRS e comunicação serial durante o processamento , estava entre sete anos e meio e sete anos e três quartos horas. Isso não levar em conta os acessórios disponíveis para backup de bateria.
+
+A experiência com este protótipo está nos ajudando a desenvolver o sistema para o próximo protótipo. O projeto de monitoramento de astronauta está evoluindo em um caminho diferente , mantendo a arquitetura original, mas usando um Holter especial com 14 ligações. Nosso foco AMS é inteiramente em aplicações terrestres. Mais notavelmente , o servidor usável está agora combinado com o servidor central , na forma de um iPAQ com construído em Bluetooth e um chip 3G para comunicações de longa distância. A QRS Holter conecta diretamente na parte de trás do iPAQ. Assim, o paciente trata apenas de uma unidade básica de que ele ou ela pode escorregar em um bolso da jaqueta . No entanto , o receptor GPS continua a ser um componente fisicamente separado e opcional.
+
+Nós também revisitou a necessidade de comunicação contínua. Para evitar a criação de uma nova geração de spams, o novo protótipo irá armazenar os dados e enviá-lo em transferências em massa dentro de um período de tempo ainda a ser determinado. O protocolo para a próxima geração do protótipo vai incluir um cronometrado " check-in" na forma de uma mensagem muito curta para confirmar contato comunicação. Um longo período de silêncio irá alertar o call center que algo está errado . Alarmes do paciente sempre será enviado imediatamente.
+
+Aplicações de telemedicina nos dão esperança para a paz de espírito e uma melhor qualidade de vida . O ponto culminante de tecnologias de processamento e de comunicação já abriu a porta para variações do sistema básico para atender às diversas condições médicas e ambientais. Nós ainda deve cobrir muito terreno em desempenho, confiabilidade , comunicação, miniaturização , privacidade , custo e ergonomia. No entanto, o monitoramento remoto da saúde , diagnóstico, tratamento e um dia vai nos assegurar que a ajuda é de fato apenas um batimento cardíaco de distância.
+
+%------------------------------------------------
+
+\subsection{ACKNOWLEDGMENTS} % Sub-section
+
+Agradecemos Leslie R. Balkany, Steve Poelzing, e Jonathan Root para o seu editorial e comentários técnicos. O Consórcio John Glenn BioEngineering, o Escritório de Tecnologia Comercial no Centro de Pesquisa Glenn da NASA, eo sistema Metro-Saúde Cleveland financiado este trabalho.
+
+%------------------------------------------------
+
+\subsection{Related Work} % Sub-section
+
+Telemedicina para a saúde e, especificamente, de monitoramento de eletrocardiograma, é uma área ativa de pesquisa. Tomando cuidados médicos fora do hospital e para o ambiente doméstico e de trabalho pode ser realizado de várias formas. Essas URLs são apenas uma amostra dos tipos de produtos atuais de ponta e pesquisa que existem:
+\begin{itemize}
+	\item Philips Research: www.research.philips.com
+	\item QRS diagnóstico: www.qrsdiagnostic.com
+	\item VivoMetrics: www.vivometrics.com
+	\item Technology Network Humanos: www.hunetec.com
+	\item AMD Telemedicina: www.amdtelemedicine.com
+	\item Frontier Saúde: www.healthfrontier.com
+	\item CardioNet: www.cardionet.com
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+%\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+
+%\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
+%Figueredo, A.~J. and Wolf, P. S.~A. (2009).
+%\newblock Assortative pairing and life history strategy - a cross-cultural
+%  study.
+%\newblock {\em Human Nature}, 20:317--330.
+ 
+%\end{thebibliography}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
+

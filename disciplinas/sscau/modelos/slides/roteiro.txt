@@ -1,0 +1,171 @@
+1. Apresentação:
+
+a) Agradecimento ao chair e aos presentes
+b) Nome
+c) Curso (...sou Mestrando em Computação do PPGC, na Universidade Federal de Pelotas)
+d) Grupo de Pesquisa (...e faço parte de grupo de Pesquisa do Lups - Laboratório de Sistemas Paralelos e Ubiquos)
+e) Titulo do Trabalho - Dizer que é uma propos
+
+2. Roteiro
+
+3. Introdução
+
+4.Computação em Nuvem
+a) Idéia Geral
+b) Características (destacar SLA)
+c) Caracterização de uma nuvem
+d) Arquitetura
+e) Desafios
+
+5. Computação Autonômica
+a) Idéia Geral
+b) Características
+
+6. Proposta
+a) Descrição (destacar SLA)
+
+7. Considerações Finais
+a) devolve a palavra ao chair
+b) deixa aberto a questões
+
+
+
+
+Desafios da Computação em Nuvem e o Uso da Computação Autonômica como estratégia de Apoio
+
+a) Crescimento Computação em Nuvem
+	i. Desafios do gerenciamento de grande escala
+	ii. Aumento no uso = Aumento no Consumo de Energia
+	iii. O aumento no consumo de energia vai de encontro as necessidade de diminuir o impacto ambiental
+	iv. Iniciativas de diminuição do impacto: GreenGrid e OpenCompute = Computação mais eficiente.
+	v. Dificuldade: diminuir o consumo de energia sem afetar sensívelmente o QoS, respeitando assim os SLA's
+
+b) CA
+
+%Idéia Central
+redução de custos operacionais através da otimização no uso do recursos computacionais; 
+concentrando o esforço de administração e gerência da infraestrutura por um mesmo provedor
+provedor fornece sua capacidade computacional na forma de serviços mensurados e cobrados
+Essa relação de consumo é regulada através dos Acordos de Nível de Serviço~(SLA), o qual estabelece os níveis aceitáveis de qualidade de um serviço~(QoS) entregue a um consumidor por um prestador de serviço. 
+
+
+
+
+%Caracterização de uma nuvem.
+A partir dessas duas características, pode-se caracterizar uma nuvem como um tipo de sistema paralelo e distribuído que consiste em um conjunto de computadores interligados e virtualizados que são dinamicamente provisionados e apresentado como um ou mais recursos de computação unificada com base em acordos de nível de serviço estabelecidos através de negociação entre o prestador de serviço e consumidores~\cite{Buyya:2009:CCE:1528937.1529211}. 
+
+%A Computação em Nuvem tem sido objeto de um crescente interesse. Segundo \cite{kudritzki2012data-center-ind}, a adoção de nuvens públicas e nuvens privadas cresceu respectivamente, 9\% e 14\% no período que compreende os de 2011 à 2012. Esse crescente interesse na Computação em Nuvem pode ser motivado na capacidade de redução de custos que esse tipo de modelo pode oferecer. Além disso, aspectos como: {\em (i)}~a~rápida diminuição do custo de hardware; {\em (ii)}~o~aumento no poder de processamento e na capacidade de armazenamento; {\em (iii)}~o~crescimento exponencial da quantidade de dados disponíveis, especialmente aos relacionados com o conteúdo da \textit{Internet}; e {\em (iv)}~a~adoção generalizada de serviços de computação e aplicações da Web~{2.0}, também tem contribuído para o crescimento da Computação em Nuvem nos últimos anos~\cite{4738445}. 
+
+
+ \begin{itemize}
+ 
+ 	\item \textit{Infraestrutura como Serviço} (IaaS): nesse nível de serviço, o provedor oferece uma infraestrutura virtualizada de servidores, armazenamento e rede, que pode ser fornecida sob demanda e cobrada conforme seu uso. Nesse tipo de serviço, o cliente pode criar uma máquina virtual e instalar sobre a mesma, uma pilha completa de software, incluindo nisso, o sistema operacional. O acesso ao servidor ou servidores, e aos serviços fornecidos por esse, acontece normalmente através da rede. Esse formato de serviço garante uma maior flexibilidade, no entanto, exige do cliente maior conhecimento para que esse possa usá-lo. Um exemplo para este tipo de serviço é o fornecido pela Amazon através do \textit{Amazon's Elastic Compute Cloud} (EC2)~\cite{amazon2013amazon-elastic-}.
+ 
+ 	\item \textit{Plataforma como Serviço} (PaaS): oferece um ambiente de alto nível integrado para construir, testar e implementar aplicativos personalizados. A vantagem imediata desse tipo de serviço é a facilidade de uso e a possibilidade dos clientes em manter o foco na criação e manutenção de seus próprios serviços. A manutenção do hardware (virtual) e software é cuidado pelo provedor de nuvem. O único inconveniente é os serviços de cliente precisa ser compatível com a nuvem. Como exemplo desse tipo de serviço, pode citar o \textit{Google Apps}~\cite{google2013google-app-engi};
+	
+	\item \textit{Software como Serviço} (SaaS): fornece software de propósito especial que é acessível remotamente pelos consumidores através da Internet com um modelo de cobrança baseada em uso. A principal característica desse tipo de serviço é o fato dos fornecedores ficarem responsáveis por gerenciar toda a plataforma virtual e as aplicações sobre esta. Como toda a manutenção é feita pelo fornecedor, os clientes só precisam se concentrar na avaliação de serviços de software e usá-los. Como toda a manutenção é fica a a cargo dos fornecedores, não é possível negociar atualizações do software. Serviços como \textit{Dropbox, Facebook, Gmail, Salesforce} representam essa classe de serviços.
+\end{itemize}
+
+
+
+
+O termo "autônomo" é baseado na biologia, especificamente no sistema nervoso autônomo. Um grande número de recursos (heterogêneos e dinâmicos) devem ser gerenciados.
+
+Os componentes precisam interagir preferencialmente sem intervenção do usuário. A denominação autonômica vem do fato de que os dispositivos e softwares presentes na AC operam por conta própria. A Computação Autonômica visa a modelagem e construção de sistemas computacionais que possuem a capacidade de se auto-gerenciar. 
+	Outra característica dos sistemas autonômicos é a sua otimização constante para garantir a prestação de melhores serviços, se adequar ao ambiente que está inserido e reduzir problemas relacionados. Sistema de Computação Autonômica, tem a capacidade de se auto-gerenciar e adaptar de acordo com políticas e objetivos pré-definidos no sistema. Portanto devem dispor de mecanismos que os permita monitorar, controlar e regular a si próprios além de de recuperarem-se de problemas sem a necessidade de intervenções.
+	Então sistemas autonômicos necessitam de um detalhado conhecimento dos seus componentes, estado atual, capacidade, limites, independência com outros sistemas e recursos disponíveis.
+	
+	Para um sistema ser considerado autonômico ele precisa apresentar algumas caracteristicas básicas como:
+
+\begin{itemize}
+
+	\item Conhecimento de si próprio.
+
+	\item Capacidade de auto-configuração de acordo com mudanças internas e externas.
+
+	\item Buscar constantemente otimizações para a execução do trabalho.
+
+	\item Capacidade de auto-otimização a fim de corrigir e evitar falha que possam prejudicar o seu funcionamento
+
+	\item Gerar alternativas de proteção para a segurança do sistema
+
+	\item O sistema deve possuir bom conhecimento do ambiente que o cerca, de forma que use de políticas e outros meios que facilitem a interação com sistemas próximos
+\end{itemize}
+
+
+
+% \begin{figure}[h]
+% %\centerline{\includegraphics[scale=.40]{imagens/elemento_autonomico.png}}
+% \caption{Comunicação entre elementos autonômicos. \cite{Esposito,2006}}
+% \label{elemento_autonomico}
+% \end{figure}
+
+%Fonte: Esposito, 2006
+
+
+%ESPOSITO, P. M. Redes Autonômicas. Trabalho para o curso de Redes de Computadores 2. Universidade Federal do Rio de Janeiro - COPPE/ POLI, Rio de Janeiro: 2006. Disponível em: <http://www.gta.ufrj.br/grad/06_2/pedro/index.html> . Acesso em junho 2011.
+
+% mas vi em http://www.hardware.com.br/artigos/computacao-autonomica/conclusao-bibliografia.html
+
+
+
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Princípios}
+
+As principais propriedades de autogestão são: auto-consciência, auto-configuração, auto-otimização, autocura e autoproteção.
+\begin{itemize}
+
+	\item Auto-consciência (\textit{self-awareness}): conhecem a sua própria arquitetura, componentes, inter-relações, estado e comportamento;
+	\item Auto-configuração(\textit{self-configuring}): são capazes configuram-se de acordo com a metas de alto nível, indicando apenas os resultados desejados, não a forma de obtê-los.
+
+	\item Auto-otimização (\textit{(self-optimizing}): capacidade de otimizar o uso de recursos, realizando mudanças no sistema de forma pró-ativa, para melhorar o desempenho como a qualidade de serviço.
+
+	\item Auto-cura (\textit{self-healing}): capacidade de detectar, diagnosticar e solucionar ou contornar problemas.
+
+	\item Auto-proteção (\textit{self-protecting}): capacidade de se protege tanto de ataques maliciosos quanto de usuários finais. 
+	
+	%deve se ajusta de forma autônoma para atingir as metas de segurança, privacidade e proteção de dados e informação. A segurança é um aspecto importante de auto-proteção tanto em software quanto em hardware. Um sistema pode também ser capaz de antecipar falhas de segurança e impedir que elas ocorram, agindo de forma pró-ativa.
+\end{itemize}
+
+
+\begin{figure}[h]
+\centerline{\includegraphics[scale=.50]{imagens/self-x_properties.png}}
+\caption{As principais propriedades de autogestão~\cite{Rahman:2011:TSA:2048456.2048457}}
+\label{self-x}
+\end{figure}
+
+
+As propriedades auto-X dos sistemas autonômicos são inspiradas nas propriedades de \textit{software} e \textit{hardware} de agentes. São elas:
+
+\begin{itemize}
+	\item Autonomia: Agentes operam sem a necessidade de intervenção direta de humanos ou outros, e tem algum tipo de de controle sobre suas ações e estado interno.
+	\item Habilidade social: Agentes interagem com outros agentes e seres humanos por meio de alguns tipo de interface ou agente de comunicação.
+	\item Reatividade: Agentes percebem o ambiente ao seu redor e respondem em tempo hábil às mudanças nele ocorridas.
+	\item Pró-atividade: Agentes não agem somente em resposta ao  ambiente, eles são capazes de atingir objetivos através de comportamento de tomar a iniciativa. 
+\end{itemize}
+
+
+Para tanto, esse mecanismo usará estratégias baseadas na Computação Autonômica tanto para determinar o estado atual do ambiente quanto para atuar sobre o mesmo, buscando otimizar o uso dos recursos quanto a eficiência energética. 
+
+coleta das informações ao desempenho e ao consumo de energia
+utilizadas para guiar heurísticas de otimização de recursos, as quais serão empregadas na 
+elaboração de estratégias globais que permitam aumentar a eficiência energética da infraestrutura computacional 
+
+tanto para determinar o estado atual do ambient e quanto para atuar sobre o mesmo, 
+, preservando ao máximo a qualidade do serviço. 
+
+Responsável por determinar ações sobre a estrutura física de duas naturezas:  
+
+(\textit{i})~as que manipulam a estrutura de \textit{hardware}: exemplo, desativando recursos de \textit{hardware} ociosos ou subutilizados, reativando-os quando necessário;
+
+ e/ou (\textit{ii})~que manipulam infraestrutura lógica, exemplo: ajuste no número de instâncias de VM's ativas, migração das mesmas entre agrupamento de servidores e realocação de serviços dentro da infraestrutura distribuída. 
+
+
+ 
+
+
+
+
+
