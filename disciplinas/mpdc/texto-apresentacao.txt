@@ -1,0 +1,173 @@
+## SLIDES INTRODUÇÃO
+
+##
+A análise dos indicadores educacionais brasileiros dos últimos anos não permite sensação de conforto, muito menos oferece motivos para comemorações.
+Segundo os dados de 2015 do PISA (Programme for International Student Assessment), o programa internacional de avaliação de estudantes, desenvolvido e coordenado pela OCDE (Organização para Cooperação e Desenvolvimento Econômico), o desempenho dos estudantes do ensino básico no Brasil, nas três áreas avaliadas pelo programa, ciências, leitura e matemática, está abaixo da média dos estudantes em países membros da organização.
+Dos 70 países avaliados pelo programa, considerando os resultados para a área de ciências, o Brasil posicionou-se na 63a colocação.
+Reforçando esse mal-estar, o relatório indica que, em ciências, o valor médio de desempenho dos estudantes brasileiros tem se mantido estável, sem apresentar mudanças estatisticamente significativas, desde o início da avaliação na área, em 2006.
+
+##
+Estudos como a edição de 2016 do Censo Escolar da Educação Básica [INEP 2017], realizado pelo Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP) 1 , proporcionam reflexões sobre a infraestrutura das instituições de ensino básico no território nacional em relação aos baixos índices apresentados pelo PISA de 2015.
+No contexto do ensino de ciências, o censo identificou que o percentual de estudantes brasileiros que possuem acesso a laboratórios de ciências no ensino básico é expressivamente inferior à estrutura prevista no PNE (Plano Nacional de Educação).
+
+##
+Conforme observado na Figura 1, entre os recursos avaliados pelo censo, os laboratórios de ciências possuem os mais baixos índices de presença nas escolas.
+
+##
+Os resultados apresentados pelo PISA de 2015 e os problemas de infraestrutura evidenciados pelo Censo Escolar da Educação Básica de 2016 demandam séria atenção.
+Investigações relacionando o perfil socioeconômico e de infraestrutura das escolas de ensino básico no Brasil associadas ao desempenho dos seus alunos em exames como o PISA atualmente podem contar com técnicas presentes na área de Mineração de Dados Educacionais (MDE).
+
+##
+Este estudo possui o objetivo de gerar um modelo preditivo do indicador de desempenho médio em ciências da natureza e suas tecnologias dos alunos de escolas do ensino médio a partir dos dados públicos referentes ao Exame Nacional do Ensino Médio (ENEM) de 2015.
+Tais dados são fornecidos pelo INEP, agrupados por escolas, como subsídio a estratégias que visem a melhoria da qualidade da educação.
+
+## SLIDES MINERAÇÃO DE DADOS EDUCACIONAIS
+
+##
+A MDE consiste na aplicação da Mineração de Dados (MD) aplicada ao contexto educacional.
+A MD é a etapa principal do processo de Descoberta de Conhecimento em Bases de Dados (DCBD, sigla em português para o termo em inglês KDD, Knowledge Discovery in Database).
+Os autores abordam a DCDB através da Figura 2, que apresenta o processo em suas quatro etapas: A base de dados, o pré-processamento, a MD e o pós-processamento.
+
+##
+Silva e Silva (2014) explicam que, no DCDB, podem ser utilizadas uma ou mais bases de dados, disponibilizadas de forma estruturada ou não estruturada.
+A integração das bases utilizadas ocorre na etapa de pré-processamento, bem como a correção de valores ausentes, ruidosos, inconsistentes e redundantes.
+Na etapa da MD, segundo Silva e Silva, é extraído algum tipo de conhecimento a partir da execução de algum algoritmo da tarefa utilizada.
+Essas tarefas podem ser: modelo preditivo, análise de agrupamento e regras de associação.
+A análise dos resultados obtidos é realizada na quarta e última etapa, o pós-processamento.
+
+##
+Segundo Silva e Silva (2014), variados estudos são encontrados na literatura acadêmica utilizando técnicas da MD no contexto educacional.
+É citada, por exemplo:
+	a aplicação de árvores de decisão para o fornecimento de informações em apoio a gestores de instituições de ensino na avaliação do desempenho dos seus alunos;
+        e a clusterização de dados na identificação de fatores relacionados à satisfação de alunos em instituições de ensino, também em apoio à tomada de decisão de seus gestores.
+
+## SLIDE TRABALHOS RELACIONÁDOS
+
+##
+A proposta de utilização da MDE no contexto dos dados abertos sobre o ENEM não é exclusiva deste estudo e tampouco recente na literatura acadêmica nacional.
+Esta seção discutirá projetos relacionando a MDE e o ENEM em áreas de avaliação como:
+processos seletivos no ensino superior;
+agrupamentos de regiões para tomada de decisões no contexto administrativo e educacional;
+fatores socioeconômicos que diminuem o desempenho dos alunos no exame;
+e matérias em que os alunos tiveram mais dificuldade no exame.
+
+##
+Martinhago (2005) investiga a base de dados sobre os vestibulandos da UFPR de dezembro de 2003.
+O autor utiliza a o software WEKA, a técnica de mineração do tipo árvore de decisão e os algoritmos de classificação J48 e J48.PART a fim de traçar o perfil do vestibulando da Universidade Federal do Paraná, campus Curitiba.
+Em sua base de dados constam informações coletadas no questionário socioeducacional preenchido pelos candidatos no momento da inscrição, os dados do cadastro geral dos candidatos contendo o registro das notas obtidas pelo candidato nas provas e na redação, a opção pelo ENEM, a nota do ENEM, a média das notas do candidato e o resultado do vestibular para o aluno.
+Em relação à nota do Exame Nacional do Ensino Médio, O autor obteve:
+resultados gerais, como estudantes que obtiveram notas entre 4,208 pontos e 10 (máxima) obtiveram sucesso no vestibular para os onze cursos mais concorridos;
+e resultados específicos, como a aprovação dos candidatos que obtiveram nota no ENEM entre 4,208 a 8,969 pontos e prestaram vestibular para o curso de Comunicação Social.
+
+##
+Furtado (2014) realiza o agrupamento dos municípios do estado do Rio de Janeiro a partir das notas de matemática do ENEM de 2011 utilizando um algoritmo de agrupamento espacial, o SKATER, com a técnica de mineração do tipo árvore geradora mínima.
+O algoritmo permite a descoberta e o agrupamento de municípios cujos resultados de seus estudantes foi semelhante, o que pode auxiliar na tomada de decisões no contexto administrativo e educacional.
+A prova de matemática foi uma escolha arbitrária do autor, que utilizou os resultados do exame como estudo de caso para sua proposta.
+Furtado apresenta uma nova abordagem para a utilização do algoritmo SKATER, que considera as medidas estatísticas dos seus atributos.
+O autor conclui que a sua proposta resulta em agrupamentos de melhor qualidade em relação à abordagem tradicional, contribuindo assim com estudos para os quais ela se aplique, como os realizados no contexto administrativo e educacional.
+
+##
+Silva, Morino e Sato (2014) utilizam dados dos questionários socioeconômicos preenchidos por alunos participantes da edição de 2010 do ENEM, oriundos das capitais da região Sudeste do Brasil.
+Essas informações, especificamente as respostas de quatro perguntas, são relacionadas com os resultados de desempenho desses alunos.
+Os autores adotam a técnica de mineração baseada em regras de associação, utilizando diferentes parametrizações do algoritmo A Priori.
+Em suas conclusões, são identificados fatores que diminuem o desempenho dos alunos, como a renda familiar baixa, a escolaridade dos pais de nível primário e a quantidade alta de pessoas que moram com o estudante.
+
+##
+Braga e Drummond (2017) investigam a utilização da linguagem R como ferramenta para mineração de dados abertos governamentais.
+Como estudo de caso empregam os dados do ENEM de 2013.
+As autoras utilizam técnicas de mineração por agrupamento, extração de regras através de árvore de decisão e mineração de texto.
+Após a demonstração do emprego de diferentes técnicas de mineração através da linguagem R, as conclusões do estudo limitam-se a ressaltar termos mais frequentes apresentados pelas provas de 2013 do ENEM e as matérias em que os alunos tiveram mais dificuldade: química, física e biologia.
+
+##
+Stearns et al. (2017) utilizam dados socioeconômicos do ENEM de para comparar a capacidade de generalização de dois métodos de agrupamento por árvore de decisão para a nota dos estudantes no exame.
+Foram utilizados os resultados das notas de matemática devida a sua alta variância.
+Os modelos utilizados foram os métodos de regressão baseados em boosting de árvore de decisão, o AdaBoost e o Gradient Boosting.
+Os melhores resultados foram obtidos com o Gradient Boosting.
+Os autores concluem que os indicadores socioeconômicos podem explicar um viés na pontuação dos alunos, sendo possível prever a nota do aluno com valores de métricas (MAE, do inglês Mean Absolute Error) adequadas.
+
+##
+A proposta apresentada neste artigo se difere das discutidas nesta seção.
+Busca-se, neste estudo, relacionar fatores socioeconômicos das escolas do ensino médio de todo o território nacional com o indicador desempenho médio em ciências da natureza e suas tecnologias dos seus alunos.
+Para tanto, será construído um modelo preditivo utilizando a técnica de mineração de árvore de decisão, através do algoritmo j48, com software WEKA.
+
+## SLIDES MATERIAIS E MÉTODOS
+
+##
+Os dados fornecidos pelo INEP apresentam valores médios de proficiência dos alunos agrupados por escolas.
+É disponibilizado um conjunto de dados para cada área avaliada, sendo elas:
+ ciências da natureza e suas tecnologias;
+ ciências humanas e suas tecnologias;
+ linguagens, códigos e suas tecnologias;
+ matemática e suas tecnologias;
+ e redação.
+As escolas presentes nos conjuntos disponibilizados são aquelas em que pelo menos 10 dez alunos estiveram em fase de conclusão do ensino médio regular e participaram do ENEM de 2015 e que possuíam pelo menos 50% de alunos participantes do exame.
+Como delimitação do estudo foi definida a utilização dos resultados para a área de ciências da natureza e suas tecnologias.
+Tal escolha foi motivada pelos baixos índices de presença de laboratórios de ciências nas escolas evidenciados pelo Censo Escolar da Educação Básica de 2016 [INEP 2017].
+
+##
+O software utilizado para a MDE foi o Waikato Environment for Knowledge Analysis (WEKA), em sua versão 3.8.1.
+O WEKA consiste em um projeto de software livre iniciado em 1992 com o objetivo de prover uma coleção compreensível de algoritmos de aprendizado de máquina e ferramentas de processamento de dados para pesquisadores e praticantes [HALL et al. 2009].
+Segundo os autores, atualmente o WEKA é aceito largamente tanto na academia e em empresas, com uma comunidade de usuários ativa, contando com mais de um milhão e quatrocentos mil downloads desde abril do ano de 2000.
+Sua implementação é realizada em linguagem Java, o que também contribui para sua manutenção e modificação.
+
+##
+Para a análise dos dados do ENEM por escola, optou-se pela técnica de mineração de árvore de decisões, através do algoritmo j48. Segundo Bhargava et al. (2013), a árvore de decisão é um sistema de suporte a decisão baseado em grafos de decisão em formato de árvore.
+É utilizado para aprender funções de classificação que indicam o valor de uma variável dependente através de dados de variáveis independentes fornecidos.
+Para os autores, árvores de decisão consistem nas abordagens mais poderosas em mineração de dados e descoberta de conhecimento.
+Tais ferramentas, dessa forma, são altamente efetivas em muitas áreas, como a mineração de texto, extração de informação, aprendizado de máquina e reconhecimento de padrões.
+Entre os algoritmos de árvores de decisão, o utilizado por Bhargava et al. (2013) é o j48, também evidenciada por Peña-Ayala (2014) como bastante popular em aplicações educacionais.
+
+##
+Pré-Processamento do Dados
+Cada tabela fornecida pelo INEP dos dados do ENEM por escola, para cada área avaliada, apresenta 25 colunas, representando uma informação, ou variável, cada, divididas em três categorias:
+ características da escola, indicadores e desempenho.
+A Tabela 1 apresenta cada uma dessas 25 variáveis e, conforme indicado na coluna Id, as nove selecionadas para serem utilizadas na mineração de dados a ser realizada.
+
+##
+A variável Média Escola indica o desempenho médio dos alunos da escola na área de ciências da natureza e suas tecnologias.
+O INEP fornece esse dado como um valor numérico, cujo valor máximo é inferior a 750 pontos para a área.
+Para a tarefa de mineração de dados, entretanto, por se tratar do valor de referência a ser utilizado, foi necessário convertê-lo em categorias limitadas.
+Na Tabela 2 são exibidas as categorias divididas em apenas quatro valores possíveis, utilizando a escala prevista pelo INEP (2016).
+
+##
+Os dados do ENEM por escola, fornecidos pelo site do INEP, são disponibilizados através de uma planilha no formato .xlsx.
+Tal formato não é suportado pelo software WEKA, a ser utilizado neste estudo, sendo convertido para um formato de dados separados por vírgula, o .csv.
+Para a análise foi salvo então um arquivo com as nove colunas selecionadas e 15599 linhas, com a identificação das colunas e as escolas cujos resultados são informados.
+
+## SLIDES DE MINERAÇÃO DE DADOS
+
+##
+Através do software WEKA, a análise por árvore de decisão utilizando o algoritmo j48 foi executada utilizando-se a opção cross-validation, com o valor para fold igual a dez e com a variável dependente Média Escola.
+A árvore obtida apresentou como variável independente principal para classificação a Tipo Escola, que se divide entre os quatro valores: privada, federal, estadual e municipal.
+A variável hierarquicamente seguinte é a Nível socioeconômico.
+A Figura 3 e a Figura 4 apresentam, respectivamente, os dois primeiros níveis hierárquicos da árvore e a árvore completa, ressaltando-se as divisões entre os tipos de escolas.
+
+##
+A árvore de decisão foi capaz de identificar corretamente 77,02% instâncias das 15998 inseridas.
+A Tabela 3 apresenta os valores de acurácia para cada classe da variável média escola.
+Os valores de precisão apresentam resultados interessantes para as classes I a III.
+Entretanto a classe IV, para médias de escolas entre 650 e 749,99 pontos, apresenta valor consideravelmente inferior aos das outras classes.
+A Tabela 4, que apresenta matriz de classificação para cada classe, indica que, na classe IV, de nove ocorrências, apenas uma foi corretamente classificada.
+
+## SLIDES DE CONCLUSÃO
+
+##
+Os resultados obtidos com a árvore de decisão utilizando-se o algoritmo j48 se mostraram promissores para três das quatro classes de valores da variável dependente Média Escola.
+Os ramos com maior variação hierárquica são justamente aqueles de maior diversidade de valores para a variável Média Escola.
+Segundo o algoritmo J48, as variáveis independentes mais importantes hierarquicamente para a decisão sobre a classe da variável independente, respectivamente e em ordem decrescente, são:
+ no primeiro nível o Tipo Escola;
+ no segundo nível o Nível Socioeconômico;
+ no terceiro nível em diante as variáveis alternaram de posição em função dos valores dos níveis superiores.
+
+##
+Sobre o desempenho médio dos alunos em ciências da natureza e suas tecnologias, destaca-se que os valores dos grupos III e IV, acima de 550 pontos, ocorrem nas escolas:
+ privadas, apenas no nível socioeconômico muito alto;
+ federais, nos níveis muito alto, alto e médio alto;
+ estaduais, apenas no nível muito alto;
+ e nas municipais, apenas no nível médio alto.
+
+##
+A continuação deste estudo prevê o enriquecimento dos dados utilizados com as informações de infraestrutura das escolas do ensino básico brasileiro.
+Através dos dados abertos do Censo Escolar da Educação Básica [INEP 2017], disponibilizados pelo INEP, a presença de laboratórios de ciências nas escolas poderá ser analisada como elemento adicional na nova árvore de decisão a ser desenvolvida.
+
+

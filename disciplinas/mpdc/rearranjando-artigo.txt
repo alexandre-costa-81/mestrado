@@ -1,0 +1,5 @@
+Introdução
+O objetivo deste estudo consiste em gerar um modelo preditivo do indicador de desempenho médio em ciências da natureza e suas tecnologias dos alunos de escolas do ensino médio a partir dos dados públicos referentes ao Exame Nacional do Ensino Médio (ENEM) de 2015.
+Tal proposta justifica-se em um cenário alarmante de baixo desempenho dos alunos do ensino básico no Brasil, de acordo com os dados de 2015 do PISA.
+A técnica de mineração de dados escolhida é a árvore de decisão e o algoritmo utilizado é o j48, através do software Waikato Environment for Knowledge Analysis (WEKA).
+
