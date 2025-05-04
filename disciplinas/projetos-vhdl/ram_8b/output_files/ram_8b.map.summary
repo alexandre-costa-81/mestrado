@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sat May  9 21:11:30 2015
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : ram_8b
+Top-level Entity Name : ram_8b
+Family : Cyclone II
+Total logic elements : 0
+    Total combinational functions : 0
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 22
+Total virtual pins : 0
+Total memory bits : 128
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

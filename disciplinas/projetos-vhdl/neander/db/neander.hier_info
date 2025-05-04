@@ -1,0 +1,6 @@
+|neander
+clk => ~NO_FANOUT~
+reset => ~NO_FANOUT~
+entrada => ~NO_FANOUT~
+
+

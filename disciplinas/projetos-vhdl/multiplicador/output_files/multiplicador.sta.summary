@@ -1,0 +1,229 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'controle:controle_map|contador_clk'
+Slack : -1.541
+TNS   : -1.785
+
+Type  : Slow Model Setup 'controle:controle_map|Selector4~0'
+Slack : -0.870
+TNS   : -3.961
+
+Type  : Slow Model Setup 'clk'
+Slack : -0.724
+TNS   : -0.987
+
+Type  : Slow Model Setup 'controle:controle_map|Selector3~0'
+Slack : -0.143
+TNS   : -0.299
+
+Type  : Slow Model Setup 'controle:controle_map|estado_atual.aguarda'
+Slack : 0.774
+TNS   : 0.000
+
+Type  : Slow Model Setup 'entrada'
+Slack : 1.292
+TNS   : 0.000
+
+Type  : Slow Model Hold 'controle:controle_map|Selector3~0'
+Slack : -2.858
+TNS   : -8.782
+
+Type  : Slow Model Hold 'clk'
+Slack : -2.561
+TNS   : -6.041
+
+Type  : Slow Model Hold 'controle:controle_map|Selector4~0'
+Slack : -2.045
+TNS   : -9.726
+
+Type  : Slow Model Hold 'entrada'
+Slack : -1.175
+TNS   : -2.295
+
+Type  : Slow Model Hold 'controle:controle_map|estado_atual.aguarda'
+Slack : -0.657
+TNS   : -1.259
+
+Type  : Slow Model Hold 'controle:controle_map|contador_clk'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'controle:controle_map|contador_clk'
+Slack : -5.240
+TNS   : -12.702
+
+Type  : Slow Model Recovery 'controle:controle_map|estado_atual.aguarda'
+Slack : -3.570
+TNS   : -3.570
+
+Type  : Slow Model Recovery 'entrada'
+Slack : -2.413
+TNS   : -2.413
+
+Type  : Slow Model Recovery 'controle:controle_map|Selector3~0'
+Slack : 1.485
+TNS   : 0.000
+
+Type  : Slow Model Removal 'controle:controle_map|Selector3~0'
+Slack : -1.215
+TNS   : -4.860
+
+Type  : Slow Model Removal 'entrada'
+Slack : -1.017
+TNS   : -1.017
+
+Type  : Slow Model Removal 'controle:controle_map|estado_atual.aguarda'
+Slack : 1.652
+TNS   : 0.000
+
+Type  : Slow Model Removal 'controle:controle_map|contador_clk'
+Slack : 2.983
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clk'
+Slack : -1.380
+TNS   : -5.380
+
+Type  : Slow Model Minimum Pulse Width 'entrada'
+Slack : -1.380
+TNS   : -1.380
+
+Type  : Slow Model Minimum Pulse Width 'controle:controle_map|Selector4~0'
+Slack : -0.500
+TNS   : -8.000
+
+Type  : Slow Model Minimum Pulse Width 'controle:controle_map|Selector1~0'
+Slack : -0.500
+TNS   : -4.000
+
+Type  : Slow Model Minimum Pulse Width 'controle:controle_map|Selector3~0'
+Slack : -0.500
+TNS   : -4.000
+
+Type  : Slow Model Minimum Pulse Width 'controle:controle_map|contador_clk'
+Slack : -0.500
+TNS   : -3.000
+
+Type  : Slow Model Minimum Pulse Width 'controle:controle_map|Selector2~0'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'controle:controle_map|estado_atual.aguarda'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'controle:controle_map|contador_clk'
+Slack : -0.429
+TNS   : -0.429
+
+Type  : Fast Model Setup 'controle:controle_map|Selector4~0'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast Model Setup 'clk'
+Slack : 0.242
+TNS   : 0.000
+
+Type  : Fast Model Setup 'controle:controle_map|Selector3~0'
+Slack : 0.477
+TNS   : 0.000
+
+Type  : Fast Model Setup 'controle:controle_map|estado_atual.aguarda'
+Slack : 0.834
+TNS   : 0.000
+
+Type  : Fast Model Setup 'entrada'
+Slack : 0.908
+TNS   : 0.000
+
+Type  : Fast Model Hold 'controle:controle_map|Selector3~0'
+Slack : -1.822
+TNS   : -5.479
+
+Type  : Fast Model Hold 'clk'
+Slack : -1.468
+TNS   : -3.711
+
+Type  : Fast Model Hold 'controle:controle_map|Selector4~0'
+Slack : -1.454
+TNS   : -7.058
+
+Type  : Fast Model Hold 'entrada'
+Slack : -0.279
+TNS   : -0.530
+
+Type  : Fast Model Hold 'controle:controle_map|estado_atual.aguarda'
+Slack : -0.205
+TNS   : -0.382
+
+Type  : Fast Model Hold 'controle:controle_map|contador_clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'controle:controle_map|contador_clk'
+Slack : -2.597
+TNS   : -5.891
+
+Type  : Fast Model Recovery 'controle:controle_map|estado_atual.aguarda'
+Slack : -1.515
+TNS   : -1.515
+
+Type  : Fast Model Recovery 'entrada'
+Slack : -1.158
+TNS   : -1.158
+
+Type  : Fast Model Recovery 'controle:controle_map|Selector3~0'
+Slack : 1.052
+TNS   : 0.000
+
+Type  : Fast Model Removal 'controle:controle_map|Selector3~0'
+Slack : -0.672
+TNS   : -2.688
+
+Type  : Fast Model Removal 'entrada'
+Slack : -0.574
+TNS   : -0.574
+
+Type  : Fast Model Removal 'controle:controle_map|estado_atual.aguarda'
+Slack : 0.843
+TNS   : 0.000
+
+Type  : Fast Model Removal 'controle:controle_map|contador_clk'
+Slack : 1.453
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clk'
+Slack : -1.380
+TNS   : -5.380
+
+Type  : Fast Model Minimum Pulse Width 'entrada'
+Slack : -1.380
+TNS   : -1.380
+
+Type  : Fast Model Minimum Pulse Width 'controle:controle_map|Selector4~0'
+Slack : -0.500
+TNS   : -8.000
+
+Type  : Fast Model Minimum Pulse Width 'controle:controle_map|Selector1~0'
+Slack : -0.500
+TNS   : -4.000
+
+Type  : Fast Model Minimum Pulse Width 'controle:controle_map|Selector3~0'
+Slack : -0.500
+TNS   : -4.000
+
+Type  : Fast Model Minimum Pulse Width 'controle:controle_map|contador_clk'
+Slack : -0.500
+TNS   : -3.000
+
+Type  : Fast Model Minimum Pulse Width 'controle:controle_map|Selector2~0'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'controle:controle_map|estado_atual.aguarda'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

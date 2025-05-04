@@ -1,0 +1,17 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+
+entity multiplicador is
+	port (
+		multiplicando: in std_logic_vector(3 downto 0);
+		multiplicador: in std_logic_vector(3 downto 0);
+		resultado: out std_logic_vector(7 downto 0)
+	);
+end multiplicador;
+
+architecture arq of multiplicador is
+begin
+	resultado <= operador_a * operador_b;
+end arq;

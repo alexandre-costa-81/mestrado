@@ -1,0 +1,147 @@
+|multiplicador
+clk => controle:controle_map.clk
+reset => controle:controle_map.reset
+entrada => controle:controle_map.entrada
+reg_md[0] => md:md_map.d[0]
+reg_md[1] => md:md_map.d[1]
+reg_md[2] => md:md_map.d[2]
+reg_md[3] => md:md_map.d[3]
+reg_mr[0] => mr:mr_map.d[0]
+reg_mr[1] => mr:mr_map.d[1]
+reg_mr[2] => mr:mr_map.d[2]
+reg_mr[3] => mr:mr_map.d[3]
+reg_pr[0] <= pr:pr_map.q[0]
+reg_pr[1] <= pr:pr_map.q[1]
+reg_pr[2] <= pr:pr_map.q[2]
+reg_pr[3] <= pr:pr_map.q[3]
+reg_pr[4] <= pr:pr_map.q[4]
+reg_pr[5] <= pr:pr_map.q[5]
+reg_pr[6] <= pr:pr_map.q[6]
+reg_pr[7] <= pr:pr_map.q[7]
+
+
+|multiplicador|md:md_map
+d[0] => d_tmp[0].DATAIN
+d[1] => d_tmp[1].DATAIN
+d[2] => d_tmp[2].DATAIN
+d[3] => d_tmp[3].DATAIN
+carga => d_tmp[0].CLK
+carga => d_tmp[1].CLK
+carga => d_tmp[2].CLK
+carga => d_tmp[3].CLK
+q[0] <= d_tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= d_tmp[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= d_tmp[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= d_tmp[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador|multplexador2x1:mux
+sel => saida~0.OUTPUTSELECT
+sel => saida~1.OUTPUTSELECT
+sel => saida~2.OUTPUTSELECT
+sel => saida~3.OUTPUTSELECT
+entrada1[0] => saida~3.DATAA
+entrada1[1] => saida~2.DATAA
+entrada1[2] => saida~1.DATAA
+entrada1[3] => saida~0.DATAA
+saida[0] <= saida~3.DB_MAX_OUTPUT_PORT_TYPE
+saida[1] <= saida~2.DB_MAX_OUTPUT_PORT_TYPE
+saida[2] <= saida~1.DB_MAX_OUTPUT_PORT_TYPE
+saida[3] <= saida~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador|mr:mr_map
+d[0] => d_tmp[0].ADATA
+d[1] => d_tmp[1].ADATA
+d[2] => d_tmp[2].ADATA
+d[3] => d_tmp[3].ADATA
+carga => d_tmp[0].ALOAD
+carga => d_tmp[1].ALOAD
+carga => d_tmp[2].ALOAD
+carga => d_tmp[3].ALOAD
+desloca => d_tmp[0].CLK
+desloca => d_tmp[1].CLK
+desloca => d_tmp[2].CLK
+desloca => d_tmp[3].CLK
+q <= d_tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador|somador:somar
+operando_a[0] => s~0.IN0
+operando_a[0] => c~0.IN0
+operando_a[1] => c~1.IN0
+operando_a[1] => c~2.IN0
+operando_a[2] => c~5.IN0
+operando_a[2] => c~6.IN0
+operando_a[3] => c~9.IN0
+operando_a[3] => c~10.IN0
+operando_b[0] => s~0.IN1
+operando_b[0] => c~0.IN1
+operando_b[1] => c~1.IN1
+operando_b[1] => c~2.IN1
+operando_b[2] => c~5.IN1
+operando_b[2] => c~6.IN1
+operando_b[3] => c~9.IN1
+operando_b[3] => c~10.IN1
+soma[0] <= s~0.DB_MAX_OUTPUT_PORT_TYPE
+soma[1] <= s~1.DB_MAX_OUTPUT_PORT_TYPE
+soma[2] <= s~2.DB_MAX_OUTPUT_PORT_TYPE
+soma[3] <= s~3.DB_MAX_OUTPUT_PORT_TYPE
+soma[4] <= c~12.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador|pr:pr_map
+d[0] => d_tmp[3].DATAIN
+d[1] => d_tmp[4].DATAIN
+d[2] => d_tmp[5].DATAIN
+d[3] => d_tmp[6].DATAIN
+d[4] => d_tmp[7].DATAIN
+limpa => d_tmp[0].ACLR
+limpa => d_tmp[1].ACLR
+limpa => d_tmp[2].ACLR
+limpa => d_tmp[3].ACLR
+limpa => d_tmp[4].ACLR
+limpa => d_tmp[5].ACLR
+limpa => d_tmp[6].ACLR
+limpa => d_tmp[7].ACLR
+desloca => d_tmp[0].CLK
+desloca => d_tmp[1].CLK
+desloca => d_tmp[2].CLK
+desloca => d_tmp[3].CLK
+desloca => d_tmp[4].CLK
+desloca => d_tmp[5].CLK
+desloca => d_tmp[6].CLK
+desloca => d_tmp[7].CLK
+q_somador[0] <= d_tmp[4].DB_MAX_OUTPUT_PORT_TYPE
+q_somador[1] <= d_tmp[5].DB_MAX_OUTPUT_PORT_TYPE
+q_somador[2] <= d_tmp[6].DB_MAX_OUTPUT_PORT_TYPE
+q_somador[3] <= d_tmp[7].DB_MAX_OUTPUT_PORT_TYPE
+q[0] <= d_tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= d_tmp[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= d_tmp[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= d_tmp[3].DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= d_tmp[4].DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= d_tmp[5].DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= d_tmp[6].DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= d_tmp[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador|controle:controle_map
+clk => estado_atual~5.DATAIN
+reset => estado_atual~9.DATAIN
+entrada => limpa_pr_tmp~0.OUTPUTSELECT
+entrada => carga_md_tmp~0.OUTPUTSELECT
+entrada => carga_mr_tmp~0.OUTPUTSELECT
+entrada => desloca_mr_tmp~0.OUTPUTSELECT
+entrada => desloca_pr_tmp~0.OUTPUTSELECT
+entrada => Selector6.IN3
+entrada => Selector9.IN4
+entrada => Selector11.IN4
+entrada => Selector5.IN2
+limpa_pr <= limpa_pr~0.DB_MAX_OUTPUT_PORT_TYPE
+carga_md <= carga_md~0.DB_MAX_OUTPUT_PORT_TYPE
+carga_mr <= carga_mr~0.DB_MAX_OUTPUT_PORT_TYPE
+desloca_mr <= desloca_mr~0.DB_MAX_OUTPUT_PORT_TYPE
+desloca_pr <= desloca_pr~0.DB_MAX_OUTPUT_PORT_TYPE
+
+

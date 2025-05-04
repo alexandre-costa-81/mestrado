@@ -1,0 +1,4 @@
+entity multiplicaodr is
+	port (
+		operador_a, operador_b: in std_logic_vector(3 downto 0);
+	);
