@@ -1,0 +1,325 @@
+\documentclass[12pt]{article}
+
+\usepackage{se-alexandre}
+
+\usepackage{graphicx,url}
+
+\usepackage[brazil]{babel}   
+\usepackage[utf8]{inputenc}  
+
+     
+\sloppy
+
+\title{Trabalho da disciplina de Sistemas Evolutivos:\\ A Cellular Automata
+ Model of Population Infected by Periodic Plague}
+
+\author{Alexandre G. da Costa\inst{1}}
+
+
+\address{Centro de Desenvolvimento Tecnológico -- Universidade Federal de
+ Pelotas
+  (UFPEL)\\
+  Pelotas -- RS -- Brasil
+  \email{alexandre.costa@inf.ufpel.edu.br}
+}
+
+\begin{document} 
+
+% ----------------------------------------------------------------------------
+\maketitle
+
+% ----------------------------------------------------------------------------
+\begin{abstract}
+  This paper describes the implementation of the proposed article in the
+  discipline of Evolutionary Systems and proposes a new approach to
+  implementation. This article describes an algorithm that evolves based on
+  a cellular automaton and each iteration evolves the population according to
+  the rules of evolution.
+\end{abstract}
+  
+% ----------------------------------------------------------------------------   
+\begin{resumo} 
+  Este trabalho descreve a implementação do artigo proposto na disciplina de
+  Sistemas Evolutivos e propõe uma nova abordagem da implementação. Esse
+  artigo descreve um algoritmo que evolui usando como base um automato 
+  celular e a cada iteração evolui a população de acordo com as regras de
+  evolução.
+\end{resumo}
+
+% ----------------------------------------------------------------------------
+\section{Introdução}
+
+Este trabalho é a atividade final da disciplina de Sistemas Evolutivos do
+Programa de pós-graduação em Ciência da Computação da Universidade Federal de
+Pelotas. Para realizar esta atividade foi escolhido o artigo \textit{A
+Cellular Automata Model of Population Infected by Periodic Plague} que trata
+da evolução de uma população constituída por indivíduos, inspirado na rede de
+autômatos celulares 2D. Cada Indivíduo carrega seu próprio ``código genético''
+representa três episódios da vida: a ``Juventude'', a ``maturidade'' e
+a ``velhice''. Os indivíduos são tratados como agentes independentes que podem
+se reproduzir de acordo com o operador de recombinação (cross-over) dos
+algoritmos genéticos. Somente as pessoas ``maduras'' da vizinhança de Moore de
+um nó de desocupado são capazes de se reproduzir \cite{dzwinel:04}.
+
+Automato celular é um modelo matemático que foi desenvolvido para simular a
+evolução natural, por exemplo \textit{Game of Life}. Pois ele define tanto o
+meio ambiante como também os indivíduos. Neste trabalho o automato celular é
+desenvolvido em cima de uma matriz bi-dimensional de células idênticas. Cada
+célula é modificada conforme passa o tempo. Em cata iteração a matriz
+bi-dimensional é varrida até encontrar um célula vazia. Assim que encontra é
+utilizado o conceito da vizinhança de Moore que busca em toda a vizinhança por
+vizinhos ``maduros''. Quando encontra dois indivíduos maduros na vizinhança é
+aplicado uma recombinação (\textit{cross-over}) dos algoritmos genéticos.
+
+Um Algoritmo Genético (AG) é uma técnica de busca utilizada na ciência da
+computação para achar soluções aproximadas em problemas de otimização e busca 
+\cite{wiki:ag}. Neste trabalho não é realizado a mutação e o \textit{cross-over} é implementado da forma mais simples, ou seja, divide no meio e cruza o
+código.
+
+Neste trabalho será reproduzido o algoritmo original, para em seguida aplicar
+a Busca Tabu. A Busca Tabu é uma Meta-heurística e um procedimento adaptativo
+auxiliar, que guia um algoritmo de busca local na exploração contínua dentro
+de um espaço de busca \cite{wiki:bt}.
+
+O restante do trabalho divide-se da seguinte forma: a sessão 2 trata dos
+trabalhos relacionados e vai explicar como funciona o algoritmo proposto por
+Dzwinel. Já a sessão 3 vai explicar como foi feita a modificação nesse
+algoritmo proposto. Logo em seguida, na sessão 4 é apresentado os resultados
+alcançados com a modificação proposta. Por fim vem a sessão de conclusão que
+fala da implementação e dos resultados alcançados.
+
+% ----------------------------------------------------------------------------
+\section{Trabalhos Relacionados}
+% Nesta sessão será explicado em detalhes o artigo referencial.
+
+O artigo referencial abordado neste trabalho foi \textit{A Cellular Automata 
+Model of Population Infected by Periodic Plague} de Witold Dzwinel. Nesse
+artigo Dzwinel propõe um modelo complementar ao \textit{Penna paradigm}
+\cite{almeida1998theoretical, de1998strategies} que considera a mutação
+genética. Esse modelo complementar objetiva analisa a influência de fatores
+ambientais sobre o processo de envelhecimento.
+
+O modelo implementado no trabalho de \cite{dzwinel:04} assume que o conjunto
+$S(t)$ de indivíduos é jogado aleatoriamente em uma matriz bi-dimensional
+de um \textbf{Automato Celular} (AC). Cada indivíduo fica em uma célula e
+carrega um código genético binário Figura \ref{fig:codigo-genetico} onde é
+mostrado um código genético de oito bits de um indivíduo.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.3\textwidth]{imagens/codigo-genetico}
+\caption{Exemplo do código genético de um indivíduo.}
+\label{fig:codigo-genetico}
+\end{figure}
+
+O código genético é composto de três vetores binários cada um corresponde a um
+episódio de vida: a juventude ``\textbf{y}'', a maturidade ``\textbf{m}'' e a
+velhice ``\textbf{o}''. Eles não representam a idade biológica dos indivíduos
+da matriz, mas sim a capacidade de reprodução. Apenas indivíduos maduros podem
+reproduzirem-se e ocorre quando esta sendo testado a vizinhança de Moore de
+uma célula desocupada. Essa reprodução é baseada no operador de
+\textit{cross-over} dos algoritmos genéticos.
+
+O tempo de vida de um indivíduo é representado pelo número de 1's no código
+genético. Já o tempo máximo de vida é o numero de 1's e 0's dentro do mesmo.
+Cada ``1'' do código genético é lido a cada evolução quando o ultimo for lido
+o indivíduo é removido da matriz CA.
+
+$A = \left \{a_{ij}\right \}_{NxN}$ é uma matriz de possíveis localizações de
+indivíduos na matriz do automato celular. A variável $a_{ij}$ é uma matriz
+binária de NxN elementos. Quando $a_{ij} = 1$ a célula estará ocupada, já para
+$a_{ij} = 0$ a célula não estará ocupada. Um indivíduo é definido pela matriz
+$\alpha _{ij}$, a Figura \ref{fig:estrutura-alpha} mostra a estrutura da
+matriz alpha.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.5\textwidth]{imagens/estrutura-alpha}
+\caption{Exemplo das estrutura if-them e alpha \cite{dzwinel:04}.}
+\label{fig:estrutura-alpha}
+\end{figure}
+
+Os vetores binários $\textbf{y}_{ij}$, $\textbf{m}_{ij}$, $\textbf{o}_{ij}$
+representam os episódios de vida de um indivíduo: a ``juventude'', a 
+``maturidade'' e a ``velhice'', respectivamente. As variáveis \textbf{l},
+\textbf{m} e \textbf{n} são os tempos máximos de cada episodio de vida
+enquanto que a duração atual de cada episódio é o numero de 1's em cada vetor
+$\textbf{y}_{ij}$, $\textbf{m}_{ij}$, $\textbf{o}_{ij}$.
+
+A reprodução é feita usando a vizinhança de Moore que procura os dois
+primeiros vizinhos no episódio da ``maturidade'' e passa para um algorítimo
+genético (ag) fazer a reprodução.
+
+A Figura \ref{fig:pseudo-codigo-evolucao} mostra a sequência de instruções
+do processo de evolução da matriz. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.5\textwidth]{imagens/pseudo-codigo-evolucao.png}
+\caption{Pseudo-código que descreve as regras de evolução \cite{dzwinel:04}.}
+\label{fig:pseudo-codigo-evolucao}
+\end{figure}
+
+A variável \textit{t} é o número de gerações do automato celular (tempo). A
+função p($\alpha _{ij}$) retorna o número de 1's do indivíduo
+\textbf{$\alpha _{ij}$}. Já a função p$_{k}$($\alpha _{ij}$) é definida como
+segue:
+
+$\forall (a_{ij} = 1 \wedge p(\alpha _{ij}) \geq k); p_{k}(\alpha_{ij}) = k.$
+
+O simbolo \textbf{$\Omega$} denota o operador de recombinação dos algoritmos
+genéticos \cite{dzwinel:04}. A função \textbf{$\Omega$} não faz a mutação
+genética, pois a implementação de Dzwinel tem por objetivo analisar a
+influência de fatores ambientais sobre o processo de envelhecimento. Por isso
+é executado apenas um \textit{cross-over} sobre os dois vizinhos selecionado e
+escolhido aleatoriamente um deles.
+
+Agora para o ambiente instável a população pode ser atacada por uma praga que
+é representada por ``\textit{seeds}''. Estas sementes são jogadas na matriz do
+automato celular periodicamente. Se ``\textit{seeds}'' jogada em uma área 
+vazia ela movimenta-se até encontrar um indivíduo, caso contrario ambos são
+eliminados da matriz. Quando uma ``\textit{seeds}'' encontra um indivíduo
+ambos são eliminados da matriz. A força da praga é definida pelo
+$\epsilon_{0}$ que vai ser multiplicado pela população atual e vai definir o
+número de ``\textit{seeds}'' que vão ser geradas.
+
+
+% ----------------------------------------------------------------------------
+\section{Proposta}
+%Nesta sessão tem o objetivo de explicar o trabalho proposto, ressaltando as
+%contribuições da proposta.
+
+O presente artigo tem o objetivo de fazer uma modificação na solução proposta
+por Dzwinel. Para fazer a reprodução ele usa basicamente o operador de cross-
+over e sorteia aleatoriamente um dos vizinhos resultante. Para este trabalho, 
+para fazer a reprodução sera usado parte da técnica de \textbf{Busca Tabu}
+(\textit{Tabu Search}).
+
+A Busca Tabu é uma técnica de busca local que teve origem nos trabalhos de
+Fred Glover e Pierre Hansen. De forma prática essa técnica salta de uma
+solução para outra que seja seu melhor vizinho e conforme salta armazena as
+melhores soluções encontradas para escapar do ótimo local.
+
+A Figura \ref{fig:busca-tabu} mostra o processo de escolha da Busca Tabu.
+Onde é selecionado uma solução aleatoriamente, no exemplo foi a célula B2 com
+o avaliação igual a 90.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.5\textwidth]{imagens/busca-tabu}
+\caption{Exemplo do processo da Busca Tabu.}
+\label{fig:busca-tabu}
+\end{figure}
+
+Inicialmente é avaliado cada vizinho e selecionado o que tem a melhor
+avaliação, no exemplo foi a célula C2 com avaliação 80. Em seguida é colocado
+a célula B2 na lista Tabu que é uma lista de movimentos proibidos. O processo
+de avaliar a vizinhança é realizado para a célula B2, mas observando a lista
+Tabu.
+
+A lista Tabu reduz o risco do algoritmo entrar em ciclo, porem pode proibir
+movimentos para uma solução que ainda não foi visitada. Para evitar isso
+existe a \textbf{função de aspiração} que é a função que retira uma solução da
+lista Tabu.
+
+A Busca Tabu é interrompida quando atingir um número máximo de iterações sem
+melhora na solução e quando o valor da melhor solução for menor que a menor
+solução conhecida ou próxima a ela.
+
+Os parâmetros de controle da Busca Tabu são o tamanho da lista tabu, a função
+de aspiração, o número de soluções vizinhas testadas em cada iteração e o
+número máximo de iterações sem melhoras na solução.
+
+Para este trabalho foi modificada a implementação feita em \cite{dzwinel:04}
+que utilizou um Algoritmo Genético, sem mutação genética, para fazer a 
+reprodução dos indivíduos. A reprodução acontecia através do
+\textit{cross-over} do código genético de dois vizinhos maduros gerando dois
+filhos. E a escolha de qual filho seria escolhido era aleatória. Para
+tentar obter resultados melhores foi modificado a forma de buscar os vizinhos,
+onde agora é testado todos os vizinhos maduros e selecionado os dois melhores.
+Estes são combinados usando \textit{cross-over} e ambos são avaliados para
+o melhor entre eles tornar-se o indivíduo da célula testada. 
+
+
+% ----------------------------------------------------------------------------
+\section{Resultados Alcançados}
+% Se possível comparando com o trabalho referencial.
+
+Os parâmetros utilizados neste trabalho foram os mesmos de Dzwinel.
+A matriz do automato celular de 200x200	e 100x100 foram consideradas como
+as opções mais balanceadamente adequada para a representação e os requisitos
+computacionais \cite{dzwinel:04}. A Tabela \ref{tab:parametro-simulacao}
+mostra os parametros de uma execução tipica.
+
+\begin{table}[ht]
+\centering
+\caption{Parametro de uma simulação tipica \cite{dzwinel:04}.}
+\label{tab:parametro-simulacao}
+\includegraphics[width=.7\textwidth]{imagens/parametro-simulacao}
+\end{table}
+
+A população é gerada de acordo com a porcentagem da variável P0 e inicialmente
+toda a população é jovem. Por isso a simulação depende muito dessa variável,
+porque dependendo do tamanho dela a população pode morrer em pouco tempo como
+também pode sobreviver ver Figura \ref{fig:crescimento-populacao-no-tempo}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.5\textwidth]{imagens/crescimento-populacao-no-tempo}
+\caption{Cenários do crescimento populacional no tempo variando P0 (tamanho 
+da população inicial). A simulação foi iniciada assumindo que todos os 
+indivíduos são "jovens". A rede CA de tamanho 100x100 foi simulado 
+\cite{dzwinel:04}.}
+\label{fig:crescimento-populacao-no-tempo}
+\end{figure}
+
+O presente trabalho foi desenvolvido em cima dos resultados apresentados na
+Figura \cite{dzwinel:04}. No primeiro momento foi desenvolvido um algoritmo
+para reproduzir os mesmos gráficos dessa figura e, em seguida, foi
+implementado um baseado na Busca Tabu que gerou os gráficos da Figura 
+\ref{fig:cenarios}.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.9\textwidth]{imagens/cenarios}
+\caption{Cenarios do crescimento populacional em relação ao tempo variando P0,
+com a Busca Tabu fazendo a evolução.}
+\label{fig:cenarios}
+\end{figure}
+
+Comparando os graficos das Figuras \ref{fig:crescimento-populacao-no-tempo} e
+\ref{fig:cenarios} podemos observar que a curva de quase todos os gráficos
+são semelhantes entre si, onde apenas o ultimo gráfico tem uma diferença 
+radical. Nos gráficos da Figura \ref{fig:cenarios} A e B é possível observar
+que houve um crescimento precoce da população. No gráficos das Figuras
+\ref{fig:cenarios} C, D e E tem o comportamento semelhante ao do algoritmo
+original. Já o gráfico da Figura \ref{fig:cenarios} F é o único que difere
+radicalmente do algoritmo original, pois no gráfico original a toda a primeira
+geração da população envelhece e morre junto e no algoritmo deste trabalho a
+população tem uma maior diversidade e se desenvolve em intervalos diferentes
+restando focos populacionais que desenvolvem-se posteriormente. Este 
+comportamento pode ser possível pelo fato da Busca Tabu selecionar o melhor 
+filho dos indivíduos e não fazer uma escolha aleatória. Isso pode ser o motivo, 
+também, de a população se desenvolver precocemente nos casos anteriores.
+
+
+% ----------------------------------------------------------------------------
+\section{Conclusões}
+%Apresentar as conclusões  \cite{dzwinel:04}.
+
+Neste trabalho foi feito uma pesquisa em cima de um artigo proposto e
+realizado uma nova implementação deste artigo. O artigo proposto tratava de
+automatos celulares utilizando algoritmos genéticos para fazer a evolução. Já
+a implementação proposta neste artigo é uma modificação que da evolução usando
+um algoritmo hibrido. Este foi implementado usando a Busca Tabu com parte dos
+genéticos (\textit{cross-over}). Os resultados obtidos não foram os esperados,
+por isso ainda é preciso avaliar melhor a implementação proposta para tentar
+encontrar possíveis erros.
+
+% ----------------------------------------------------------------------------
+
+\bibliographystyle{sbc}
+\bibliography{se-alexandre}
+
+\end{document}

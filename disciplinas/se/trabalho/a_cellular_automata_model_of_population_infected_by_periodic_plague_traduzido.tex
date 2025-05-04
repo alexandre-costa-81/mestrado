@@ -1,0 +1,295 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+%----------------------------------------------------------------------------------------
+% Autor........: Alexandre Gomes da Costa
+% Professor....: Marilton Sanchotene de Aguiar
+% Disciplina...: Sistemas Evolutivos (SE)
+% Descrição....: Trabalho final
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% Página de Titulo
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+\textsc{\LARGE Universidade Federal de Pelotas}\\[1.5cm]
+
+\HRule \\[0.4cm]
+{\huge \bfseries A Cellular Automata Model of Population Infected by Periodic Plague}\\[0.4cm]
+\HRule \\[1.5cm]
+
+\emph{Author:} Alexandre Gomes da Costa
+
+\vfill
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+% Tabela de Conteúdo
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Include a table of contents
+
+\newpage % Begins the essay on a new page instead of on the same page as the table of contents 
+
+%----------------------------------------------------------------------------------------
+% Abistract
+%----------------------------------------------------------------------------------------
+
+\section{Abstract}
+
+Evolution of a population consisting of individuals, each holding a unique “genetic code”, is modeled on the 2D cellular automata lattice. The “genetic code” represents three episodes of life: the “youth”, the “maturity” and the “old age”. Only the “mature” individuals can procreate. Durations of the life-episodes are variable and are modified due to evolution. We show that the “genetic codes” of individuals self-adapt to environmental conditions in such a way that the entire ensemble has the greatest chance to survive. For a stable environment, the “youth” and the “mature” periods extend extremely during evolution, while the “old age” remains short and insignificant. The unstable environment is modeled by periodic plagues, which attacks the colony. For strong plaques the “young” individuals vanishes while the length of the “old age” period extends. We concluded that while the “maturity” period decides about the reproductive power of the population, the idle life-episodes set up the control mechanisms allowing for self-adaptation of the population to hostile environment. The “youth” accumulates reproductive resources while the “old age” accumulates the space required for reproduction.
+
+Index Terms: cellular automata, population infected.
+
+%----------------------------------------------------------------------------------------
+% Resumo
+%----------------------------------------------------------------------------------------
+
+\section{Resumo}
+
+Evolução de uma população constituída por indivíduos, cada um guardando um "código genético" único, é inspirado na rede de autômatos celulares 2D. O "código genético" representa três episódios da vida: "Juventude" , "maturidade" e "velhice". Somente as pessoas "maduras" pode procriar. Durações dos episódios de vida são variáveis e são modificados devido à evolução. Nós mostramos que o "código genético" de indivíduos auto-adapta às condições ambientais, de tal maneira que todo o conjunto tem a maior probabilidade de sobreviver. Para um ambiente estável, a "juventude" e os períodos de "maduros" estender extremamente durante a evolução, enquanto que a "velhice" permanece curto e insignificante. O ambiente instável é modelado por pragas periódicas, que ataca a colônia. Para pragas fortes os indivíduos "jovens" desaparece enquanto a duração do período de "velhice" se estende. Concluiu-se que, enquanto o período de "maturidade" decide sobre o poder reprodutivo da população, os episódios da vida ociosa configurar os mecanismos de controle que permitam a auto- adaptação da população ao ambiente hostil. A "juventude" acumula recursos reprodutivos, enquanto a "velhice" acumula o espaço necessário para a reprodução.
+
+Palavras-chave: Automatos Celulares, Evolução de uma população.
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+% Instrodução
+%----------------------------------------------------------------------------------------
+
+\section{Introdução}
+
+% The cellular automata paradigm is a perfect computational platform for modeling evolving population. It defines both the communication medium for the agents and the living space. Assuming the lack of individual features, which diversify the population, the modeled system adapts to the unstable environment, developing variety of spatially correlated patterns (see e.g. [1-3]). Formation of patterns of well-defined multi-resolutional structures can be viewed as the result of a complex exchange of information between individuals and the whole population.
+
+O paradigma de autômatos celulares é uma plataforma computacional perfeita para modelar evolução da população. Ela define tanto o meio de comunicação para os agentes como também o espaço de vida. Assumindo a ausência de características individuais, que diversifica a população, o sistema modelado se adapta ao ambiente instável, desenvolvendo variedade de padrões espacialmente correlacionadas (ver por exemplo [1-3]). A formação de padrões de estruturas multi-resolutional bem definidos podem ser vistos como o resultado de uma troca complexa de informação entre indivíduos e toda a população.
+
+% Another type of correlations - correlations in the feature space - emerges for the models of populations in which each individual holds a unique feature vector evolving along with the entire system [4]. The aging is one of the most interesting puzzles of evolution, which can be investigated using this kind of models.
+
+Outro tipo de correlações - Correlações no espaço de características - emerge para os modelos de populações em que cada indivíduo detém um vetor característica única evoluindo junto com todo o sistema [4]. O envelhecimento é um dos quebra-cabeças mais interessantes da evolução, que podem ser investigados usando este tipo de modelos.
+
+% It is widely known that the aging process is mainly determined by the genetic and environmental features. The most of computational models of aging involving genetic factor are based on the famous Penna paradigm [5,6]. This model uses the theory of accumulation, which says that destructive mutations - which consequences depend on the age of individual - can be inherited by the following generations and are accumulated in their genomes. The Penna model suffers from the following important limitations.
+
+É sabido que o processo de envelhecimento é determinada principalmente pelas características genéticas e ambientais. A maioria dos modelos computacionais de envelhecimento envolve factor genético são baseados na famosa paradigma Penna [5,6]. Este modelo utiliza a teoria da acumulação, que diz que as mutações destrutivas - qual conseqüências dependem da idade do indivíduo - pode ser herdada pelas gerações seguintes e são acumulados em seus genomas. O modelo Penna sofre das seguintes limitações importantes.
+
+\begin{enumerate}
+% The location of the individuals in space is neglected, thus the system evolves in spatially uncorrelated environment with unbounded resources.
+
+\item A localização dos indivíduos no espaço é negligenciada, assim, o sistema evolui no ambiente espacialmente correlacionados com recursos ilimitados.
+
+% Only two episodes of life are considered, i.e., the “youth” and the “maturity”. The durations of the two are the same for each individual. The “old age” is neglected.
+
+\item Apenas dois episódios da vida são considerados, ou seja, a "juventude" e a "maturidade". As durações dos dois são as mesmas para cada indivíduo. A "velhice" é negligenciada.
+\end{enumerate}
+
+% In this paper we propose a new model, complementary to the Penna paradigm. It does not consider genetic mutations. Instead, it allows for studying the influence of environmental factors on the aging process.
+
+Neste trabalho, propomos um modelo novo, complementar ao paradigma Penna. Não considera mutações genéticas. Em vez disso, ele permite estudar a influência de fatores ambientais sobre o processo de envelhecimento.
+
+% The paper is constructed as follows. First, we describe our algorithm, its principal assumptions and implementation details. In the following section we discuss the results of evolution and self-adaptation of population to the hostile environment represented by periodic plaques. Finally, our findings are summarized.
+
+O artigo é construído da seguinte forma. Primeiro, descrevemos nosso algoritmo, seus principais pressupostos e detalhes de implementação. Na seção seguinte, vamos discutir os resultados da evolução e auto-adaptação da população ao ambiente hostil representada por pragas periódicas. Finalmente, nossos resultados são resumidos.
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+% CA Model of Evolution
+%----------------------------------------------------------------------------------------
+
+\section{CA Model of Evolution}
+
+% Let us assume that an ensemble of S(t) individuals is spread on 2D N×N mesh of cellular automata (CA). The mesh is periodic. Each individual, residing in (i,j) node, is equipped with a binary chain – the “genetic code” - of length L. The length and the number of “1”s in the chain correspond to the maximal and actual life-time of individual, respectively. Only “1”s from “genetic codes” of each individual are read one by one along with the evolution while “0”s are skipped. Afterwards the last “1” has been read, the individual is deleted from the lattice. The individuals are treated as independent agents, which can move and reproduce according to recombination (cross-over) operator from the genetic algorithms. The code chain consists of three sub-chains corresponding to three episodes of life: the “youth” y, the “maturity” m and the “old age” o. They do not represent biological age of individuals, but reflect their reproduction ability. Only the “mature” individuals from the Moore neighborhood [7] of an unoccupied node of CA lattice are able to reproduce. Every individual can move randomly on CA lattice if there is a free space in its closest neighborhood.
+
+Vamos supor que um conjunto de S(t) indivíduos está espalhada em uma malha de autômatos celulares (CA) 2D NxN. A malha é periódica. Cada indivíduo, residente em (i, j) de nó, é equipado com uma cadeia binária ("código genético") de comprimento L. O comprimento e o número de "1"s na cadeia correspondem ao tempo máximo e tempo de vida atual do indivíduo, respectivamente. Apenas "1"s do "códigos genéticos" de cada indivíduo são lidos um a um, juntamente com a evolução, enquanto "0"s são ignorados. Depois que o último "1" tenha sido lido, o indivíduo é excluído da rede. Os indivíduos são tratados como agentes independentes, que podem moverem e reproduzirem-se de acordo com o operador de recombinação (cross-over) dos algoritmos genéticos. A cadeia de código consiste em três sub-cadeias correspondentes a três episódios de vida: a "juventude" y, a "maturidade" m e a "velhice" o. Eles não representam a idade biológica dos indivíduos, mas reflete a sua capacidade de reprodução. Somente as pessoas "maduras" da vizinhança de Moore [7] de um nó desocupado de rede CA são capazes de se reproduzir. Cada indivíduo pode se mover aleatoriamente na rede CA, se houver um espaço livre na sua vizinhança mais próxima.
+
+% Let $A = \left \{a_{ij}\right \}_{NxN}$ is the array of possible locations of individuals on the 2D NxN lattice of the cellular automata. The value of aij∈R, R={0,1}, where “0” means that the node is “unoccupied” and “1” that it is “occupied”. An individual is defined by corresponding “genetic code” αij∈R such that:
+
+Seja $A = \left \{a_{ij}\right \}_{NxN}$ é a matriz de possíveis localizações dos indivíduos na rede 2D NxN do autômato celular. O valor de $a_{ij} \in R, R = \left \{0,1\right \}$, em que "0" significa que o nó é "desocupado" e "1" que está "ocupado". Um indivíduo é definido pelo correspondente "código genético" $\alpha _{ij} \in R^{L}$ tal que:
+
+%In Fig.1 we show the sequence of instructions describing the process of evolution. The binary vectors yij, mij, oij represent the subsequent episodes of individual life: the “youth”, the “maturity” and the “old age”, respectively. The values of l,m,n are the maximum lengths of each of the episodes while their actual durations are equal to the number of “1”s in the corresponding vectors yij, mij, oij. The symbol Ω denotes the classical recombination operator from the genetic algorithms, t is the number of generation cycle (time), p(αij) is the unitation operator, (i.e., it returns the number of “1”s in αij chain) and the function pk( ) is the “counter” operator defined as follows:
+
+Na Fig.1, mostramos a seqüência de instruções que descrevem o processo de evolução. Os vetores binários $y_{ij}$, $m_{ij}$, $o_{ij}$ representam os episódios subseqüentes de vida do individuo: a "juventude", a "maturidade" e a "velhice", respectivamente. Os valores de l, m, n são os comprimentos máximos de cada um dos episódios, enquanto as suas durações reais são iguais ao número de "1"s nos vectores correspondentes $y_{ij}$, $m_{ij}$, $o_{ij}$. O símbolo  $\Omega$ denota o operador de recombinação clássica dos algoritmos genéticos, t é o número de ciclo de geração (tempo), p($\alpha_{ij}$) é o operador unitation, (ou seja, ele retorna o número de "1"s na cadeia $\alpha_{ij}$) e a função $p_{k}()$ é o operador "contra" definido como segue:
+
+% We assume that, the population can be attacked by a plaque represented by “seeds”. The “seeds”, which are generated periodically in time, are scattered randomly on the CA lattice. The strength of the plague is defined by ε0 - the ratio between the number of “seeds” and the total number of individuals. If a “seed” is located at the same place as the population member, both are removed from the lattice. Otherwise, the “seed” moves randomly on the CA lattice until it “annihilates” with the first encountered individual. The “seeds” cannot reproduce.
+
+Nós supomos que, na população pode ser atacado por uma praga representada por "sementes". As "sementes", que são geradas periodicamente no tempo, estão espalhadas aleatoriamente na rede CA. A resistência da praga é definida por $\epsilon_{0}$ - a razão entre o número de "sementes" e o número total de indivíduos. Se uma "semente" situa-se no mesmo local que o membro da população, ambos são removidas da estrutura. Caso contrário, a "semente" se move aleatoriamente na rede CA até que "aniquila" com o primeiro indivíduo encontrado. As "sementes" não podem se reproduzir.
+
+% Our system consisting of elements with “genetic codes” evolves not only on  CA lattice but also in the abstract multi-dimensional feature space RL represented by the coordinates of binary chains αij. As shown, e.g., in [4], the clusters of similar individuals are created both on the mesh and in the feature space RL due to the genetic drift. These clusters can be extracted using clustering algorithms [8,9] and then visualized in 3-D space by employing multidimensional scaling (MDS) algorithms [8,9].
+
+Nosso sistema constituído por elementos com "códigos genéticos" evolui não apenas na rede CA, mas também no espaço multi-dimensional abstrato característico $R^{L}$ representado pelas coordenadas de cadeias binárias $\alpha_{ij}$. Como mostrado, por exemplo, em [4], os conjuntos de indivíduos semelhantes são criados tanto na malha e no espaço de característica $R^{L}$ devido ao desvio genético. Esses conjuntos podem ser extraídos usando algoritmos de agrupamento [8,9] e, em seguida, visualizado no espaço 3-D, empregando algoritmos de escalonamento multidimensional (MDS) [8,9]. 
+
+%----------------------------------------------------------------------------------------
+% Results of Modeling
+%----------------------------------------------------------------------------------------
+
+\section{Results of Modeling}
+
+% The parameters assumed for a typical run are shown in Tab.1. The periodic lattice of cellular automata 200x200 and 100x100 were considered as optimal ones balancing well adequate representation and computational requirements. These parameters are also sufficient to obtain stable populations and partly eliminate boundary effects.
+
+Os parâmetros assumidos para uma execução típica são mostrados na Tab. 1. A rede periódica de autômatos celulares 200x200 e 100x100 foram considerados como os ideais de equilíbrio representação bem adequado e requisitos computacionais. Estes parâmetros também são suficientes para a obtenção de populações estáveis e eliminar a parte efeitos de fronteira.
+
+% At the start of evolution, the population is generated randomly with P0 density (P0∈(0,1), see Tab.1). Because all individuals are initially “young”, the evolution scenario depends strongly on P0 (see Fig.2). For both too large and too small P0 values, after some time, the number of offspring can become marginal in contrast to massive extermination of “old” individuals from the initial population. This may lead to fast extinction of the whole population. This effect can be considerably reduced by increasing mobility factor of individuals, their life-time and initial diversity of population.
+
+No início da evolução, a população é gerada aleatoriamente com densidade P0 ($P0 \in (0,1)$, ver Tab. 1). Porque todos os indivíduos são inicialmente "jovem", o cenário de evolução depende fortemente P0 (ver Fig. 2). Para valores de P0 ambos muito grandes e muito pequenos, depois de algum tempo, o número de filhos pode se tornar marginal, em contraste com o extermínio em massa de indivíduos "velhos" da população inicial. Isto pode conduzir à extinção rápido de toda a população. Este efeito pode ser reduzido consideravelmente, aumentando fator de mobilidade das pessoas, o seu tempo de vida e diversidade inicial de população.
+
+% We have assumed additionally that:
+
+Assumimos também que:
+
+\begin{itemize}
+% the length L of the vector representing the “genetic code” is equal to 96,
+\item o comprimento L do vector que representa o "código genético" é igual a 96,
+% the lengths of vectors y, m, o are identical, i.e., l=m=n=32 (see Definition 1).
+\item os comprimentos dos vetores y, m, o são idênticos, ou seja, l = m = n = 32 (ver definição 1).
+\end{itemize}
+
+% The value of L was selected intentionally to have more compact representation (thus more efficient code) of individual, whose “genetic code” can be implemented then as three float values. The value of L cannot be too small due to statistical validity (the number of “1”s in various episodes of individual’s life has initially the Gaussian distribution) and due to high sensitivity of the system on various simulation conditions. Other configurations and vector lengths were also examined. The first conclusion is that, the individuals, even those with the same life-time lengths L, can behave in various ways depending on the lengths of subsequent life-episodes y, m, o. On the one extreme, the population with too short “maturity” period will die quickly. On the other, the populations with greater reproduction potential (defined by the length of m vector) will tend to fill the m part of vector $\alpha$ with “1”s. This is due to the population members who are “mature” for a longer time, have a greater chance to reproduce and pass their “genetic code” to other generations. One can expect that the similar behavior will be observed for “idle” episodes of individual’s life i.e., the “youth” and the “old age”, i.e., the individual’s life-time will increase due to the evolution to the maximum length L. However, the situation is completely different.
+
+O valor de L foi seleccionada intencionalmente para ter uma representação mais compacta (código de uma forma mais eficaz) do indivíduo , cujo "código genético" pode ser implementada, assim como três valores float. O valor de L não pode ser muito pequena, devido à validade estatística (o número de "1"s em vários episódios de vida do indivíduo tem inicialmente a distribuição de Gauss) e , devido à elevada sensibilidade do sistema em diferentes condições de simulação. Outras configurações e comprimentos de vector foram também examinados. A primeira conclusão é que, os indivíduos, mesmo aqueles com o mesmo tempo de vida comprimentos L, podem comportar-se de várias maneiras, dependendo dos comprimentos de episódios posteriores de vida y, m, o. Em um extremo, a população com muito curto período de "maturidade" vai morrer rapidamente. Por outro lado, as populações com maior potencial de reprodução (definida pelo comprimento do vector m) tenderá a preencher a parte m do vector $\alpha$ com "1"s. Isto é devido aos membros da população que são "maduro" por um longo tempo, têm uma maior chance de se reproduzir e transmitir o seu "código genético" para outras gerações. Pode-se esperar que o comportamento semelhante será observada para episódios "ociosos" de vida do indivíduo, ou seja, a "juventude" e a "velhice" , ou seja, o tempo de vida do indivíduo vai aumentar devido à evolução para o comprimento máximo L. No entanto, a situação é completamente diferente.
+
+% Let us assume that initially the distribution of “1”s in each of the three episodes of life is Gaussian and there are in average 16 “1”s in each of y, m and o vectors. These initial conditions are shown in Fig.3a. After t=2000 time-steps, the situation considerably changed. The distributions of “1”s for each period of life undergo strong diversification (Fig.4b).
+
+Suponhamos que, inicialmente, a distribuição de "1"s em cada um dos três episódios de vida é de Gauss e existem, em média, 16 "1"s em cada um de vectores y, m e o. Estas condições iniciais são mostrados na Fig. 3a. Após t = 2000 passos de tempo, a situação mudou consideravelmente. As distribuições de "1"s para cada período da vida sofrer forte diversificação (Fig.4B).
+
+% As displayed in Fig.4, the distribution of individuals both on the CA lattice and in the feature space, changed also dramatically. Instead of initially chaotic configuration of individuals populating 2D lattice, they form distinct clusters. The individuals belonging to the same cluster are similar according to the Hamming distance in the L-D feature space. As shown in Fig.4b there exist four distinct “families” of individuals in the feature space. In Fig.4a we show them projected onto the CA lattice.
+
+Como mostrado na Figura 4, a distribuição das pessoas tanto na rede CA e no espaço de características, mudou também de forma dramática. Em vez de configuração inicialmente caótico de indivíduos que povoam treliça 2D, eles formam grupos distintos. Os indivíduos pertencentes ao mesmo grupo são semelhantes de acordo com a distância de Hamming no espaço de características LD. Como mostrado na Fig.4B existem quatro "famílias" distintas dos indivíduos no espaço de características. Na Fig. 4a vamos mostrar-lhes projetada na rede CA.
+
+The continuation of the evolution from Fig.4 produces a stable attractor, which consists of four “families” of individuals, which have exactly the same “genetic codes”. The codes differ between clusters only on two bits positions. Therefore, the offspring generated due to recombination belong to one of the existing clusters. We did not obtain any global solution with only one large cluster of individuals having the same genetic code. It means that the fitness factor for the populations of individuals with the three life periods is not a trivial, increasing function of the length of life. This is unlike for populations, which are “mature” and ready for reproduction during the whole life-time (L=m, l,n=0). In this case the attractor of the evolution process would consist of individuals with “genetic codes” filled exclusively by “1”s.
+
+A continuação da evolução da Fig. 4 produz um atrator estável, que consiste em quatro "famílias" de indivíduos, que têm exatamente os mesmos "códigos genéticos". Os códigos diferem entre clusters apenas em dois bits de posições. Assim, a descendência gerada devido à recombinação pertencem a um dos grupos existentes. Nós não obter qualquer solução global com apenas um grande aglomerado de pessoas que têm o mesmo código genético. Isso significa que o fator de adequação para as populações de indivíduos com os três períodos de vida não é uma função trivial, aumentando a duração da vida. Isto é diferente para as populações, que são "madura" e pronta para a reprodução, durante todo o tempo de vida (L=m, l, n=0). Neste caso, o atrator do processo de evolução seria composto de indivíduos com "códigos genéticos" preenchidos exclusivamente por "1"s.
+
+% The most basic features of attractors resulting from modeling are collected in Tab.2. As shown in Tab.2, where apart from the “natural” elimination - resulting from the limited life-time inscribed in the “genetic code” - there are not any other lethal factors, the “maturity” period fills with “1”s after relatively small number of evolution cycles t. This is obvious because longer ability of reproduction gives a greater chance for passing the genetic code to the offspring. By extending the evolution time about threefold, also the “youth” vector will be filled with ‘1’s. Surprisingly, even much longer simulation does not affect the “old age” vector. It remains the mixture of “1”s and “0”s. This observation confirms also for:
+
+As características mais básicas de atratores resultantes de modelagem são coletados em Tab.2. Como mostrado na Tab.2, onde para além da eliminação "natural" - resultante do tempo de vida limitado inscrito no "código genético" - não existem quaisquer outros fatores letais, o período de "maturidade" enche de "1"s depois de um número relativamente pequeno de ciclos de evolução t. Isso é óbvio, porque mais capacidade de reprodução dá uma chance maior de passar o código genético para a prole. Ao estender o tempo de evolução cerca de três vezes, também o vector "juventude" será preenchido com '1's. Surpreendentemente, mesmo muito mais tempo de simulação não afeta o vector "velhice". Mantém-se a mistura de "1" s e "0" s. Esta observação confirma também para:
+
+\begin{itemize}
+% variable lengths of y, m, o (l≠m≠n),
+\item comprimentos variáveis de y, m e o ($l \neq m \neq n$),
+% long “old age” period (n=64),
+\item longo período de "velhice" (n = 64),
+% much shorter remaining episodes (l=16, m= 24, respectively).
+\item episódios restantes muito mais curtos (l = 16, m = 24, respectivamente).
+\end{itemize}
+
+% Surprisingly, further decrease of the “youth” episode (l=8, m=32, n=64) with respective extension of the “maturity” episode weakens considerably the population. For (l=0, m=40, n=64) it dies eventually. This behavior shows that the “youth” period accumulates reproductive ability of the population. If released too fast it will cause non-uniform aging (see Fig.5b), which may result in fast extinction of the whole population.
+
+Surpreendentemente, diminuição adicional do episódio "juventude" (l = 8, m = 32, n = 64) com a respectiva extensão do episódio "maturidade" enfraquece consideravelmente a população. Para (l = 0, m = 40, n = 64) ele eventualmente morre. Este comportamento mostra que o período de "juventude" acumula capacidade reprodutiva da população. Se lançado rápido demais vai causar envelhecimento não uniforme (ver Fig.5b), que pode resultar na extinção rápida de toda a população.
+
+% As depicted in Fig.6, the population attacked by the periodic plague dies if the strength (“Dose” in Tab.1) of the plague ε0, defined as the ratio of the number of “seeds” to the number of individuals, and/or its period exceeds a certain threshold.
+
+Como representado na Fig. 6, a população atacada pela praga periódica morre se a força ("Dose" na Tab. 1) dos $\epsilon_{0}$ praga, definidos como a razão entre o número de "sementes" para o número de indivíduos, e/ou a sua duração for superior a um determinado limite.
+
+% The attractors (i.e., the non-evolving populations of individuals with similar “genetic codes” obtained due to the long evolution) in a stable environment die very quickly due to the lack of adaptation ability represented by diversification in the “genetic codes” of individuals. For example, a uniform population (e.g., see Tab.2 for l=m=n=32) obtained after long evolution (t=50,000 time-steps) and attacked then by the plague extincts during the following 100 steps. The same population, but this time infected at the early stage of evolution (after t=200 steps) survives. The “genetic codes” of individuals self-adapt to the unstable environment. As shown in Tab.2, the “genetic codes” of attractors of attacked population are different than those obtained for the stable environment. Moreover, they differentiate depending on the period of the plague.
+
+Os atratores (ou seja, as populações não-evolução de indivíduos com "códigos genéticos" semelhantes obtidos devido à longa evolução) em um ambiente estável morrer muito rapidamente, devido à falta de capacidade de adaptação representado pela diversificação nos "códigos genéticos" dos indivíduos . Por exemplo, uma população uniforme (por exemplo, ver Tab.2 para l = m = n = 32), obtido após longa evolução (t = 50.000 passos de tempo) e depois atacados pelos extincts praga durante os 100 passos seguintes. A mesma população, mas desta vez infectadas na fase precoce da evolução (após t = 200 passos) sobrevive. Os "códigos genéticos" de indivíduos auto-adaptar-se ao ambiente instável. Como mostrado na Tab.2, os "códigos genéticos" de atratores de população atacados são diferentes do que aqueles obtidos para o ambiente estável. Além disso, eles se diferenciam de acordo com o período da praga.
+
+% For the outbreak with a period shorter than the average life-time of individuals, the “youth” episode, as the obstacle for fast reproduction, is eliminated completely (all “0”s in vector y). Surprisingly, the “old age” period remains relatively long. Because the population can have not enough time for reproduction between subsequent plaques, it has to elaborate sophisticated control mechanism of growth. Let us assume that:
+
+Para o surto com um período mais curto do que o tempo de vida médio de indivíduos, o episódio "juventude", como o obstáculo para a reprodução rápida, é eliminada completamente (todos os "0" s no vetor y). Surpreendentemente, o período de "velhice" permanece relativamente longo. Porque a população possa ter tempo não é suficiente para a reprodução entre placas posteriores, tem que elaborar mecanismo de controle sofisticado de crescimento. Vamos supor que:
+
+\begin{enumerate}
+
+% the “old age” is inhibited (n=0) and the population consists of only “mature” individuals,
+
+\item a "velhice" é inibida (n = 0) ea população é composta por apenas indivíduos "maduros",
+
+% the majority of individuals are eliminated by the plaque from the lattice in a very short time.
+
+\item a maioria dos indivíduos são eliminados por a placa da estrutura num muito curto espaço de tempo.
+
+\end{enumerate}
+
+% At the very moment when the plaque ceases, all survivors will produce many newborns due to plenty of free space on the lattice. Therefore, after some time, the individuals of a similar age and approximately the same life-time will dominate in the population. Their simultaneous death will weaken the population (see Fig.5b). Thus, the number of “mature” individuals, which survive after the following disasters, may be too small to initiate new generations and the population may extinct eventually.
+
+No momento em que a placa cessa, todos os sobreviventes irão produzir muitos recém-nascidos, devido à abundância de espaço livre na rede. Portanto, depois de algum tempo, os indivíduos da mesma idade, e aproximadamente o mesmo tempo de vida dominará na população. Sua morte simultânea enfraquecerá a população (ver Fig.5b). Assim, o número de indivíduos "maduro", que sobrevivem após as seguintes desastres, pode ser muito pequeno para iniciar novas gerações ea população pode eventualmente extinto.
+
+
+% Assuming that the “old age” episode is greater than 0 (n>0), post-plaque demographic eruption (resulting in demographic catastrophe after some time) can be much smaller than for n=0. It is easy to remark that the demographic eruption will be monotonically decreasing function of n because only the “mature” survivors have reproductive ability. Moreover, the existence of “old” individuals will decrease the probability of reproduction. The replacement of “old” individuals with newborns will be also postponed and possible only after their death. All of these demographic inhibitors cause that the post-plaque reconstruction of the population takes more time than in the previous (n=0) case. Instead, the age distribution in the population is more stable (see Fig.5a). Thus the population allowing the “old age” episode is stronger and has a greater chance to survive in unstable environment than that consisting of only “mature” individuals. We can conclude that the “old” individuals accumulate the environmental resources (free space) for stable growth eliminating dangerous post-plaque effects such as demographic eruptions.
+
+Assumindo que o episódio "velhice" é maior do que 0 (n > 0) , pós-praga erupção demográfica (resultando em catástrofe demográfica depois de algum tempo) pode ser muito menor do que para n = 0. É fácil observar que a erupção demográfico será função de n monotonicamente decrescente porque só os sobreviventes "maduros" têm capacidade reprodutiva. Além disso, a existência de indivíduos "velhos" vai diminuir a probabilidade de reprodução. A substituição de indivíduos "velhos" com os recém-nascidos também será adiado e possível somente após a sua morte. Todos esses inibidores demográficas causar que a reconstrução pós-praga da população leva mais tempo do que no (n = 0) caso anterior. Em vez disso, a distribuição etária da população é mais estável (ver Fig.5a). Assim, a população permitindo que o episódio de "velhice" é mais forte e tem uma chance maior de sobreviver em ambiente instável do que consiste em apenas indivíduos "maduros". Podemos concluir que os indivíduos "velhos" acumular os recursos ambientais (espaço livre) para o crescimento estável eliminando perigosos efeitos pós-praga, como erupções demográficas.
+
+% When the plague period is greater than the average life-time of individuals and simultaneously the “strength” of the plague increases, the “old age” is also eliminated due to evolution. This is because the population has enough time for reproduction and demographic minimum does not coincide with the plaque.
+
+Quando o período de praga é maior que o tempo de vida médio de indivíduos e, simultaneamente, a "força" da praga aumenta, a "velhice" também é eliminado devido à evolução. Isto é porque a população tem tempo suficiente para a reprodução e mínimo demográfica não coincide com a placa.
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+% Concluding Remarks
+%----------------------------------------------------------------------------------------
+
+\section{Concluding Remarks}
+
+% We have discussed the influence of the lengths of three life-episodes: the “youth”, the “maturity” and the “old age” on population evolution. Of course, their duration of depends on the biological construction of individuals. The organism requires a minimum time to grow-up and be ready for reproduction. However, the terms “youth”, “maturity” and “old age” used in this paper have not only biological meaning. Environmental factors influence both reproduction ability and the life-time. They may cause that the same organism can be treated as “young”, “mature” or “old” independently on his age.
+
+Nós discutimos a influência dos comprimentos de três episódios da vida: a "juventude", a "maturidade" e "velhice" na evolução da população. Naturalmente, a sua duração depende da construção biológica dos indivíduos. O organismo necessita de um tempo mínimo para crescer e estar pronto para a reprodução. No entanto, os termos "juventude", "maturidade" e "velhice" utilizada neste trabalho não têm apenas significado biológico. Os fatores ambientais influenciam tanto a capacidade de reprodução e o tempo de vida. Eles podem causar que o mesmo organismo pode ser tratado como "jovem", "madura" ou "velho" independentemente de sua idade.
+
+% Summarizing our findings, we can conclude that “maturity” period decides about the reproductive power of the population and its survival ability. Thus the population increases its length to a maximum value allowed. The idle episodes of life, i.e., the “youth” and the “old age” play the role of accumulators of the population resources and control their growth. The “youth” accumulates reproductive resources while the “old age” accumulates the space required for reproduction. The idle life-episodes develop the control mechanisms, which allow for self-adaptation of the population to unstable environment.
+
+Resumindo nossos resultados, podemos concluir que o período de "maturidade" decide sobre o poder reprodutivo da população e sua capacidade de sobrevivência. Assim, a população aumenta o seu comprimento até um valor máximo permitido. Os episódios ociosos da vida, ou seja, a "juventude" e a "velhice" desempenhar o papel de acumuladores dos recursos da população e controlar o seu crescimento. A "juventude" acumula recursos reprodutivos, enquanto a "velhice" acumula o espaço necessário para a reprodução. Os episódios de vida ociosas desenvolvem os mecanismos de controle, que permitem a auto-adaptação da população ao ambiente instável.
+
+
+\begin{enumerate}
+% In the case of a stable growth the reproductive resources are accumulated in the “youth” episode of life. The “old age” remains the secondary control mechanism.
+
+\item No caso de um crescimento estável dos recursos reprodutivos são acumulados no episódio "juventude" da vida. A "velhice" continua a ser o mecanismo de controle secundário.
+
+% For periodically infected populations with the period longer than the average length of the life-time L the population is biased only for reproduction, eliminating idle episodes of life.
+
+\item Para as populações periodicamente infectados com o período mais longo do que a duração média do tempo de vida da população L é tendenciosa apenas para a reprodução, eliminando episódios ociosos da vida.
+
+% For strong enough and frequent pests the „old age” remains non-zero accumulating additional space required for burst-out of population just after the plague vanishes.
+
+\item Para pragas suficientemente fortes e freqüentes a "velhice" permanece diferente de zero acumulando espaço adicional necessário para estouro da população logo após a peste desaparece.
+
+\end{enumerate}
+
+% Many aspects of the model have not been explored yet. For example, the influence of lethal mutations and other hostile environmental factors on the survival ability of the population. However, our model can be an interesting complementary constituent to the Penna paradigm of aging.
+
+Muitos aspectos do modelo não foram exploradas. Por exemplo, a influência de mutações letais e outros factores ambientais hostis sobre a capacidade de sobrevivência da população. No entanto, o nosso modelo pode ser um componente complementar interessante para o paradigma Penna de envelhecimento.
+
+% Acknowledgements. The research is supported by the Polish Committee of Scientific Research KBN, Grant No. 3T11C05926. Thanks are due to dr Anna Jasi ska-Suwada from Cracovian University of Technology, Institute of Teleinformatics, for her contribution to this paper.
+
+\textbf{Acknowledgements}. The research is supported by the Polish Committee of Scientific Research KBN, Grant No. 3T11C05926. Thanks are due to dr Anna Jasi ska-Suwada from Cracovian University of Technology, Institute of Teleinformatics, for her contribution to this paper.
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+% References
+%----------------------------------------------------------------------------------------
+
+\section{References}
+
+\begin{enumerate}
+\item Hermanowicz SW: A Simple 2D Biofilm Model Yields a Variety of Morphological Features. Mathematical Biosciences 169(1)(2001):1-14
+
+\item Lacasta AM, Cantalapiedra IR, Auguet CE, Penaranda A and Ramirez-Piscina L: Modeling of spatiotemporal patterns in bacterial colonies. Phys. Rev. E 59(6)(1999):7036-7041
+
+\item Krawczyk K., Dzwinel W: Non-linear development of bacterial colony modeled with cellular automata and agent object, Int J. Modern Phys. C 10(2003):1-20.
+
+\item Broda A, Dzwinel W: Spatial Genetic Algorithm and its Parallel Implementation, Lecture Notes in Computer Science, 1184(1996): 97-107.
+
+\item de Almeida RMC, de Oliveira S Moss, Penna TJP: (Theoretical Approach to Biological Aging. Physica A 253, (1997):366-378
+
+\item de Menezes MA, Racco A, Penna TJP: Strategies of Reproduction and Longevity, Int J. Modern Phys. C. 9(6) (1998):787-791
+
+\item Chopard B, Droz M: Cellular Automata Modeling of Physical Systems, Cambridge Univ. Press, London, (1998)
+
+\item Jain D, Dubes RC: Algorithms for Clustering Data, Prentice-Hall, Advanced Reference Series (1998).
+
+\item Theodoris S, Koutroumbas K: Pattern Recognition, Academic Press, San Diego, London, Boston (1998)
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
