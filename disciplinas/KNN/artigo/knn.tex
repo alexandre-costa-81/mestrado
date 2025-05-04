@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+
+\usepackage{graphicx,url}
+%\usepackage{subcaption}
+\usepackage{subfigure}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}  
+
+\hfuzz=0.64pt
+\sloppy
+
+\title{Implementa\c{c}\~ao do k-nearest neighbors -- KNN\\ em VHDL}
+
+\author{Alexandre G. da Costa\inst{1}, Diego P. Jaccottet\inst{1}, Leandro W.
+  Dias\inst{1} }
+
+
+\address{CDTec -- Universidade Federal de Pelotas
+  (UFPEL)\\
+  CEP 96.010-610 -- Pelotas -- RS -- Brazil
+  \email{alexandre.costa@inf.ufpel.edu.br, \{diego.porto.j,lwdias\}@gmail.com}
+}
+
+\begin{document} 
+
+\maketitle
+
+%\begin{abstract}
+%  This paper describes ...
+%\end{abstract}
+
+\input{resumo}
+
+\input{introducao}
+
+\input{trabalhos-relacionados}
+
+\input{kinect}
+
+\input{algoritmo-knn}
+
+\input{comunicacao-serial}
+
+\input{implementacao-knn-vhdl}
+
+\input{descricao-entrada-saida}
+
+\input{bloco-operativo}
+
+\input{bloco-controle}
+
+\input{resultados}
+
+\input{conclusao}
+
+%(Figure~\ref{fig:exampleFig1}), otherwise justified and indented by 0.8cm on
+%both margins, as shown in Figure~\ref{fig:exampleFig2}. The caption font must
+
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=.5\textwidth]{fig1.jpg}
+%\caption{A typical figure}
+%\label{fig:exampleFig1}
+%\end{figure}
+
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=.3\textwidth]{fig2.jpg}
+%\caption{This figure is an example of a figure caption taking more than one
+%  line and justified considering margins mentioned in Section~\ref{sec:figs}.}
+%\label{fig:exampleFig2}
+%\end{figure}
+
+%\begin{table}[ht]
+%\centering
+%\caption{Variables to be considered on the evaluation of interaction
+%  techniques}
+%\label{tab:exTable1}
+%\includegraphics[width=.7\textwidth]{table.jpg}
+%\end{table}
+
+%Bibliographic references must be unambiguous and uniform.  We recommend giving
+%the author names references in brackets, e.g. \cite{knuth:84},
+%\cite{boulic:91}, and \cite{smith:99}.
+
+%The references must be listed using 12 point font size, with 6 points of space
+%before each reference. The first line of each reference should not be
+%indented, while the subsequent should be indented by 0.5 cm.
+
+\bibliographystyle{sbc}
+\bibliography{knn}
+
+\end{document}

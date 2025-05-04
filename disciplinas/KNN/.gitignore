@@ -1,0 +1,21 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!*.vhd
+!*.tex
+!*.bib
+!*.sty
+!*.bst
+!*.png
+!*.csv
+!*.py
+!*.vhdl
+!*.zip
+!*.pdf
+# etc...
+
+# ...even if they are in subdirectories
+!*/
+*.pdf
